@@ -28,15 +28,15 @@ const Hero = () => {
           className="font-display text-2xl md:text-3xl lg:text-4xl text-secondary-foreground italic mb-8 animate-fade-up"
           style={{ animationDelay: '0.3s' }}
         >
-          Ads & Marketing Specialist
+          Aspiring Web Developer
         </p>
         
         <p 
           className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed mb-12 animate-fade-up"
           style={{ animationDelay: '0.4s' }}
         >
-          I craft data-driven marketing campaigns that convert. 
-          Passionate about turning ad spend into measurable growth and ROI.
+          B.Tech student passionate about building clean, responsive, and user-friendly websites. 
+          Driven by continuous learning and practical problem-solving.
         </p>
         
         <div 
