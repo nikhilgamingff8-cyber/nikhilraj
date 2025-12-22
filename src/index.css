@@ -300,4 +300,61 @@
   .animate-pulse-slow {
     animation: pulse-slow 8s ease-in-out infinite;
   }
+
+  /* Form field focus animations */
+  .form-input {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .form-input:focus {
+    @apply ring-2 ring-primary/50 border-primary shadow-lg;
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1), 0 4px 12px hsl(var(--primary) / 0.15);
+    transform: translateY(-1px);
+  }
+
+  .form-input:focus-within {
+    @apply border-primary;
+  }
+
+  /* Label animation for focused inputs */
+  .form-label {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .form-input:focus ~ .form-label,
+  .form-input:not(:placeholder-shown) ~ .form-label {
+    @apply text-primary font-medium;
+  }
+
+  /* Input wrapper for animated border effect */
+  .input-wrapper {
+    @apply relative;
+  }
+
+  .input-wrapper::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary transition-all duration-300 ease-out;
+    transform: translateX(-50%);
+  }
+
+  .input-wrapper:focus-within::after {
+    @apply w-full;
+  }
+
+  /* Glowing effect on focus */
+  @keyframes input-glow {
+    0% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 4px hsl(var(--primary) / 0.1);
+    }
+    100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0);
+    }
+  }
+
+  .form-input:focus {
+    animation: input-glow 0.4s ease-out;
+  }
 }
