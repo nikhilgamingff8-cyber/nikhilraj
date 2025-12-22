@@ -103,6 +103,17 @@ const Contact = () => {
     });
   };
 
+  // Handle keyboard shortcut (Ctrl+Enter or Cmd+Enter to submit)
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+      e.preventDefault();
+      const form = e.currentTarget.closest("form");
+      if (form) {
+        form.requestSubmit();
+      }
+    }
+  };
+
   const socials = [
     { icon: Github, label: "GitHub", href: "https://github.com/nikhilgamingff8-cyber" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/nikhil-raj-513a22393" },
@@ -363,12 +374,13 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
+                  onKeyDown={handleKeyDown}
                   maxLength={5000}
                   rows={5}
                   className={`w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none ${
                     errors.message ? 'border-destructive' : 'border-border'
                   }`}
-                  placeholder="Tell me about your project..."
+                  placeholder="Tell me about your project... (Ctrl+Enter to send)"
                 />
                 {errors.message && (
                   <p className="mt-1 text-sm text-destructive font-body">{errors.message}</p>
