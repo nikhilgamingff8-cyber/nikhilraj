@@ -22,11 +22,11 @@ const Contact = () => {
         </p>
         
         <a 
-          href="mailto:hello@nikhilraj.dev"
+          href="mailto:nikhilraj1662@gmail.com"
           className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-10 py-5 rounded-full font-body font-medium text-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 mb-16"
         >
           <Mail className="w-5 h-5" />
-          hello@nikhilraj.dev
+          nikhilraj1662@gmail.com
         </a>
         
         <div className="flex items-center justify-center gap-2 text-muted-foreground font-body mb-8">
