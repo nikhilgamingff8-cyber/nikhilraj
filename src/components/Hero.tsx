@@ -127,8 +127,8 @@ const Hero = () => {
           className="shrink-0 animate-fade-up"
           style={{ animationDelay: '0.2s' }}
         >
-          <div className="relative">
-            <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl shadow-primary/20">
+          <div className="relative animate-float">
+            <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 animate-glow-pulse">
               <img 
                 src={profilePhoto} 
                 alt="Nikhil Raj - Aspiring Web Developer"
