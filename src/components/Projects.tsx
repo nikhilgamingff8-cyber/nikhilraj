@@ -8,9 +8,9 @@ const Projects = () => {
     {
       title: "Personal Portfolio Website",
       category: "Main Project",
-      description: "Developed a responsive personal portfolio using HTML and CSS to showcase projects, skills, and contact details.",
-      tags: ["HTML", "CSS", "Responsive Design"],
-      link: null,
+      description: "Developed a responsive personal portfolio to showcase projects, skills, and contact details. Built with modern web technologies.",
+      tags: ["React", "Tailwind CSS", "TypeScript"],
+      link: "https://nikhilraj.lovable.app",
       status: "live",
     },
     {
