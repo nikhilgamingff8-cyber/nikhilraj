@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Clock, Trash2 } from "lucide-react";
+import { Clock, Trash2, CheckCircle } from "lucide-react";
 import { Mail, MapPin, Github, Linkedin, Send, Twitter } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useToast } from "@/hooks/use-toast";
@@ -63,6 +63,7 @@ const Contact = () => {
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const formStartTime = useRef<number | null>(null); // Track when user starts interacting
   const [rateLimitCountdown, setRateLimitCountdown] = useState<number>(0); // Countdown timer for rate limiting
+  const [showSuccess, setShowSuccess] = useState(false); // Success animation state
 
   // Auto-save form data to localStorage
   useEffect(() => {
@@ -192,6 +193,9 @@ const Contact = () => {
 
       if (error) throw error;
 
+      // Show success animation
+      setShowSuccess(true);
+      
       toast({
         title: "Message sent!",
         description: "Thank you for reaching out. I'll get back to you soon!",
@@ -200,6 +204,11 @@ const Contact = () => {
       setFormData({ name: "", email: "", subject: "", message: "" });
       localStorage.removeItem(STORAGE_KEY); // Clear saved draft on success
       formStartTime.current = null; // Reset timer
+      
+      // Hide success animation after 3 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
     } catch (error: any) {
       console.error("Error sending message:", error);
       
@@ -253,7 +262,22 @@ const Contact = () => {
         
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
-          <div className={`reveal-left ${isVisible ? 'visible' : ''}`}>
+          <div className={`reveal-left ${isVisible ? 'visible' : ''} relative`}>
+            {/* Success Overlay */}
+            {showSuccess && (
+              <div className="absolute inset-0 z-10 flex items-center justify-center bg-card/95 backdrop-blur-sm rounded-2xl animate-fade-in">
+                <div className="text-center space-y-4">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/20 animate-scale-in">
+                    <CheckCircle className="w-10 h-10 text-primary animate-[bounce_0.5s_ease-in-out]" />
+                  </div>
+                  <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                    <h3 className="font-display text-2xl font-semibold text-foreground">Message Sent!</h3>
+                    <p className="text-muted-foreground font-body mt-1">I will get back to you soon.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+            
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Honeypot field - hidden from humans, bots will fill it */}
               <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">
