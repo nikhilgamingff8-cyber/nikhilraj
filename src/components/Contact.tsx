@@ -3,6 +3,33 @@ import { Mail, MapPin, Github, Linkedin, Send, Twitter } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+// Zod validation schema
+const contactSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(1, "Name is required")
+    .max(100, "Name must be less than 100 characters"),
+  email: z
+    .string()
+    .trim()
+    .email("Please enter a valid email address")
+    .max(255, "Email must be less than 255 characters"),
+  subject: z
+    .string()
+    .trim()
+    .min(1, "Subject is required")
+    .max(200, "Subject must be less than 200 characters"),
+  message: z
+    .string()
+    .trim()
+    .min(1, "Message is required")
+    .max(5000, "Message must be less than 5000 characters"),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
 
 const Contact = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
@@ -14,6 +41,7 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
 
   const socials = [
     { icon: Github, label: "GitHub", href: "https://github.com/nikhilgamingff8-cyber" },
@@ -22,16 +50,45 @@ const Contact = () => {
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    
+    // Clear error when user starts typing
+    if (errors[name as keyof ContactFormData]) {
+      setErrors({ ...errors, [name]: undefined });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
+
+    // Validate with Zod
+    const result = contactSchema.safeParse(formData);
+    
+    if (!result.success) {
+      const fieldErrors: Partial<Record<keyof ContactFormData, string>> = {};
+      result.error.errors.forEach((err) => {
+        const field = err.path[0] as keyof ContactFormData;
+        if (!fieldErrors[field]) {
+          fieldErrors[field] = err.message;
+        }
+      });
+      setErrors(fieldErrors);
+      
+      toast({
+        title: "Validation Error",
+        description: "Please fix the errors in the form.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
       const { data, error } = await supabase.functions.invoke("send-contact-email", {
-        body: formData,
+        body: result.data,
       });
 
       if (error) throw error;
@@ -46,7 +103,7 @@ const Contact = () => {
       console.error("Error sending message:", error);
       toast({
         title: "Error sending message",
-        description: "Please try again or email me directly.",
+        description: error.message || "Please try again or email me directly.",
         variant: "destructive",
       });
     } finally {
@@ -96,10 +153,15 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-card border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                    maxLength={100}
+                    className={`w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors ${
+                      errors.name ? 'border-destructive' : 'border-border'
+                    }`}
                     placeholder="John Doe"
                   />
+                  {errors.name && (
+                    <p className="mt-1 text-sm text-destructive font-body">{errors.name}</p>
+                  )}
                 </div>
                 <div>
                   <label htmlFor="email" className="block font-body text-sm font-medium text-foreground mb-2">
@@ -111,10 +173,15 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-card border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                    maxLength={255}
+                    className={`w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors ${
+                      errors.email ? 'border-destructive' : 'border-border'
+                    }`}
                     placeholder="john@example.com"
                   />
+                  {errors.email && (
+                    <p className="mt-1 text-sm text-destructive font-body">{errors.email}</p>
+                  )}
                 </div>
               </div>
               
@@ -128,10 +195,15 @@ const Contact = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-card border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
+                  maxLength={200}
+                  className={`w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors ${
+                    errors.subject ? 'border-destructive' : 'border-border'
+                  }`}
                   placeholder="Project Inquiry"
                 />
+                {errors.subject && (
+                  <p className="mt-1 text-sm text-destructive font-body">{errors.subject}</p>
+                )}
               </div>
               
               <div>
@@ -143,11 +215,16 @@ const Contact = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  required
+                  maxLength={5000}
                   rows={5}
-                  className="w-full px-4 py-3 bg-card border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none"
+                  className={`w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none ${
+                    errors.message ? 'border-destructive' : 'border-border'
+                  }`}
                   placeholder="Tell me about your project..."
                 />
+                {errors.message && (
+                  <p className="mt-1 text-sm text-destructive font-body">{errors.message}</p>
+                )}
               </div>
               
               <button
