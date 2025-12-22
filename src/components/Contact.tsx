@@ -34,20 +34,43 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
+const STORAGE_KEY = "contact-form-draft";
+
 const Contact = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+  const [formData, setFormData] = useState(() => {
+    // Load saved form data from localStorage on initial render
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch {
+          // Invalid JSON, use defaults
+        }
+      }
+    }
+    return {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    };
   });
   const [honeypot, setHoneypot] = useState(""); // Honeypot field - should remain empty
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const formStartTime = useRef<number | null>(null); // Track when user starts interacting
   const [rateLimitCountdown, setRateLimitCountdown] = useState<number>(0); // Countdown timer for rate limiting
+
+  // Auto-save form data to localStorage
+  useEffect(() => {
+    const hasContent = formData.name || formData.email || formData.subject || formData.message;
+    if (hasContent) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+    }
+  }, [formData]);
 
   // Countdown timer effect
   useEffect(() => {
@@ -150,6 +173,7 @@ const Contact = () => {
       });
 
       setFormData({ name: "", email: "", subject: "", message: "" });
+      localStorage.removeItem(STORAGE_KEY); // Clear saved draft on success
       formStartTime.current = null; // Reset timer
     } catch (error: any) {
       console.error("Error sending message:", error);
