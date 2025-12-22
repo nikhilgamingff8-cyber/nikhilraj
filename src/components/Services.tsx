@@ -1,4 +1,4 @@
-import { Code, Palette, Smartphone, Zap, Globe, Wrench } from "lucide-react";
+import { Code, Palette, Smartphone, Globe, GraduationCap, Sparkles } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Services = () => {
@@ -7,35 +7,54 @@ const Services = () => {
   const services = [
     {
       icon: Code,
-      title: "Web Development",
-      description: "Building modern, clean, and functional websites using HTML, CSS, and JavaScript with best practices.",
+      title: "Basic Websites",
+      description: "Learning to build simple, clean websites using HTML and CSS. Perfect for personal pages and portfolios.",
+      status: "Learning",
     },
     {
       icon: Smartphone,
-      title: "Responsive Design",
-      description: "Creating websites that look great and work seamlessly across all devices and screen sizes.",
+      title: "Responsive Layouts",
+      description: "Practicing how to make websites look great on phones, tablets, and desktops using CSS media queries.",
+      status: "Learning",
     },
     {
       icon: Palette,
-      title: "UI/UX Design",
-      description: "Designing intuitive and visually appealing user interfaces that enhance user experience.",
-    },
-    {
-      icon: Zap,
-      title: "Performance Optimization",
-      description: "Optimizing websites for speed and performance to ensure fast loading times.",
+      title: "UI Design Basics",
+      description: "Exploring color theory, typography, and layout principles to create visually appealing designs.",
+      status: "Learning",
     },
     {
       icon: Globe,
       title: "Landing Pages",
-      description: "Crafting high-converting landing pages that capture attention and drive results.",
+      description: "Working on creating single-page websites that are clean, modern, and user-friendly.",
+      status: "Soon",
     },
     {
-      icon: Wrench,
-      title: "Website Maintenance",
-      description: "Providing ongoing support and updates to keep your website running smoothly.",
+      icon: Sparkles,
+      title: "JavaScript Interactivity",
+      description: "Starting to learn JavaScript to add dynamic features and interactivity to web pages.",
+      status: "Soon",
+    },
+    {
+      icon: GraduationCap,
+      title: "Open to Learn More",
+      description: "Excited to explore new technologies like React, Tailwind CSS, and more as I grow my skills.",
+      status: "Future",
     },
   ];
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case "Learning":
+        return "bg-yellow-500/20 text-yellow-500";
+      case "Soon":
+        return "bg-blue-500/20 text-blue-500";
+      case "Future":
+        return "bg-purple-500/20 text-purple-500";
+      default:
+        return "bg-muted text-muted-foreground";
+    }
+  };
 
   return (
     <section 
@@ -46,14 +65,14 @@ const Services = () => {
       <div className="max-w-6xl mx-auto">
         <div className={`text-center mb-16 reveal ${isVisible ? 'visible' : ''}`}>
           <p className="text-primary font-body text-sm tracking-widest uppercase mb-4">
-            What I Offer
+            What I Am Learning
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-semibold mb-6">
-            My <span className="text-gradient italic">Services</span>
+            Future <span className="text-gradient italic">Services</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-            I offer a range of web development services to help bring your ideas to life 
-            with clean code and beautiful designs.
+            As a beginner, I am building my skills every day. Here is what I am learning 
+            and will soon be able to offer as a developer.
           </p>
         </div>
         
@@ -63,8 +82,13 @@ const Services = () => {
               key={index}
               className={`group bg-card border border-border rounded-2xl p-8 hover-lift cursor-pointer reveal-scale ${isVisible ? 'visible' : ''} stagger-${Math.min(index + 1, 4)}`}
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                <service.icon className="w-7 h-7 text-primary" />
+              <div className="flex items-center justify-between mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                  <service.icon className="w-7 h-7 text-primary" />
+                </div>
+                <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(service.status)}`}>
+                  {service.status}
+                </span>
               </div>
               
               <h3 className="font-display text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
