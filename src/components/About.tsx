@@ -50,7 +50,7 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
-                Hi, I am Nithya R, a B.Tech undergraduate in Material Science and 
+                Hi, I am Nikhil Raj, a B.Tech undergraduate in Material Science and 
                 Metallurgical Engineering at MANIT Bhopal. I have just started my 
                 journey into web development, and I could not be more excited!
               </p>
