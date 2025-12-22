@@ -315,7 +315,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     maxLength={100}
-                    className={`w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors ${
+                    className={`form-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none ${
                       errors.name ? 'border-destructive' : 'border-border'
                     }`}
                     placeholder="John Doe"
@@ -335,7 +335,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     maxLength={255}
-                    className={`w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors ${
+                    className={`form-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none ${
                       errors.email ? 'border-destructive' : 'border-border'
                     }`}
                     placeholder="john@example.com"
@@ -368,7 +368,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   maxLength={200}
-                  className={`w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors ${
+                  className={`form-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none ${
                     errors.subject ? 'border-destructive' : 'border-border'
                   }`}
                   placeholder="Project Inquiry"
@@ -401,7 +401,7 @@ const Contact = () => {
                   onKeyDown={handleKeyDown}
                   maxLength={5000}
                   rows={5}
-                  className={`w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none ${
+                  className={`form-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none resize-none ${
                     errors.message ? 'border-destructive' : 'border-border'
                   }`}
                   placeholder="Tell me about your project... (Ctrl+Enter to send)"
