@@ -294,10 +294,7 @@ const Contact = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <label htmlFor="name" className="block font-body text-sm font-medium text-foreground">
-                      Your Name
-                    </label>
+                  <div className="flex items-center justify-end mb-1">
                     <span className={`font-body text-xs ${
                       formData.name.length > 80 
                         ? formData.name.length > 95 
@@ -308,38 +305,46 @@ const Contact = () => {
                       {100 - formData.name.length}
                     </span>
                   </div>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    maxLength={100}
-                    className={`form-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none ${
-                      errors.name ? 'border-destructive' : 'border-border'
-                    }`}
-                    placeholder="John Doe"
-                  />
+                  <div className="floating-label-group">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      maxLength={100}
+                      placeholder=" "
+                      className={`form-input floating-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground focus:outline-none ${
+                        formData.name ? 'has-value' : ''
+                      } ${errors.name ? 'border-destructive' : 'border-border'}`}
+                    />
+                    <label htmlFor="name" className="floating-label">
+                      Your Name
+                    </label>
+                  </div>
                   {errors.name && (
                     <p className="mt-1 text-sm text-destructive font-body">{errors.name}</p>
                   )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block font-body text-sm font-medium text-foreground mb-2">
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    maxLength={255}
-                    className={`form-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none ${
-                      errors.email ? 'border-destructive' : 'border-border'
-                    }`}
-                    placeholder="john@example.com"
-                  />
+                  <div className="h-5 mb-1" /> {/* Spacer to align with name field */}
+                  <div className="floating-label-group">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      maxLength={255}
+                      placeholder=" "
+                      className={`form-input floating-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground focus:outline-none ${
+                        formData.email ? 'has-value' : ''
+                      } ${errors.email ? 'border-destructive' : 'border-border'}`}
+                    />
+                    <label htmlFor="email" className="floating-label">
+                      Your Email
+                    </label>
+                  </div>
                   {errors.email && (
                     <p className="mt-1 text-sm text-destructive font-body">{errors.email}</p>
                   )}
@@ -347,10 +352,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <label htmlFor="subject" className="block font-body text-sm font-medium text-foreground">
-                    Subject
-                  </label>
+                <div className="flex items-center justify-end mb-1">
                   <span className={`font-body text-xs ${
                     formData.subject.length > 160 
                       ? formData.subject.length > 190 
@@ -361,28 +363,30 @@ const Contact = () => {
                     {200 - formData.subject.length}
                   </span>
                 </div>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  maxLength={200}
-                  className={`form-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none ${
-                    errors.subject ? 'border-destructive' : 'border-border'
-                  }`}
-                  placeholder="Project Inquiry"
-                />
+                <div className="floating-label-group">
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    maxLength={200}
+                    placeholder=" "
+                    className={`form-input floating-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground focus:outline-none ${
+                      formData.subject ? 'has-value' : ''
+                    } ${errors.subject ? 'border-destructive' : 'border-border'}`}
+                  />
+                  <label htmlFor="subject" className="floating-label">
+                    Subject
+                  </label>
+                </div>
                 {errors.subject && (
                   <p className="mt-1 text-sm text-destructive font-body">{errors.subject}</p>
                 )}
               </div>
               
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <label htmlFor="message" className="block font-body text-sm font-medium text-foreground">
-                    Message
-                  </label>
+                <div className="flex items-center justify-end mb-1">
                   <span className={`font-body text-xs ${
                     formData.message.length > 4500 
                       ? formData.message.length > 4900 
@@ -390,22 +394,27 @@ const Contact = () => {
                         : 'text-amber-500' 
                       : 'text-muted-foreground'
                   }`}>
-                    {5000 - formData.message.length} characters remaining
+                    {5000 - formData.message.length} remaining
                   </span>
                 </div>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  onKeyDown={handleKeyDown}
-                  maxLength={5000}
-                  rows={5}
-                  className={`form-input w-full px-4 py-3 bg-card border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none resize-none ${
-                    errors.message ? 'border-destructive' : 'border-border'
-                  }`}
-                  placeholder="Tell me about your project... (Ctrl+Enter to send)"
-                />
+                <div className="floating-label-group">
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                    maxLength={5000}
+                    rows={5}
+                    placeholder=" "
+                    className={`form-input floating-textarea w-full px-4 pt-8 pb-3 bg-card border rounded-lg font-body text-foreground focus:outline-none resize-none ${
+                      formData.message ? 'has-value' : ''
+                    } ${errors.message ? 'border-destructive' : 'border-border'}`}
+                  />
+                  <label htmlFor="message" className="floating-label">
+                    Message (Ctrl+Enter to send)
+                  </label>
+                </div>
                 {errors.message && (
                   <p className="mt-1 text-sm text-destructive font-body">{errors.message}</p>
                 )}
