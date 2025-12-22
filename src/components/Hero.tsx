@@ -34,8 +34,8 @@ const Hero = () => {
             className="font-display text-5xl md:text-7xl lg:text-8xl font-semibold leading-tight mb-6 animate-fade-up"
             style={{ animationDelay: '0.2s' }}
           >
-            <span className="text-foreground">Nikhil </span>
-            <span className="text-gradient">Raj</span>
+            <span className="text-foreground">Nithya </span>
+            <span className="text-gradient">R</span>
           </h1>
           
           <p 
@@ -113,7 +113,7 @@ const Hero = () => {
             </a>
             <a 
               href="/resume.pdf" 
-              download="Nikhil_Raj_Resume.pdf"
+              download="Nithya_R_Resume.pdf"
               className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
             >
               <Download className="w-4 h-4" />
@@ -136,7 +136,7 @@ const Hero = () => {
               <div className="absolute inset-[6px] rounded-full overflow-hidden bg-background">
                 <img 
                   src={profilePhoto} 
-                  alt="Nikhil Raj - Aspiring Web Developer"
+                  alt="Nithya R - Aspiring Web Developer"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
