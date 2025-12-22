@@ -20,8 +20,8 @@ const Hero = () => {
           className="font-display text-5xl md:text-7xl lg:text-8xl font-semibold leading-tight mb-6 animate-fade-up"
           style={{ animationDelay: '0.2s' }}
         >
-          <span className="text-foreground">Alex </span>
-          <span className="text-gradient">Morgan</span>
+          <span className="text-foreground">Nikhil </span>
+          <span className="text-gradient">Raj</span>
         </h1>
         
         <p 
