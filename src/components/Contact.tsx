@@ -162,7 +162,7 @@ const Contact = () => {
               
               <div className="space-y-6 mb-8">
                 <a 
-                  href="mailto:nikhilraj270906@gmail.com"
+                  href="mailto:nikhilgamingff8@gmail.com"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -170,7 +170,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-body text-sm text-muted-foreground">Email</p>
-                    <p className="font-body font-medium text-foreground">nikhilraj270906@gmail.com</p>
+                    <p className="font-body font-medium text-foreground">nikhilgamingff8@gmail.com</p>
                   </div>
                 </a>
                 
