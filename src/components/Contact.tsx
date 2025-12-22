@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Clock } from "lucide-react";
+import { Clock, Trash2 } from "lucide-react";
 import { Mail, MapPin, Github, Linkedin, Send, Twitter } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useToast } from "@/hooks/use-toast";
@@ -88,6 +88,20 @@ const Contact = () => {
 
     return () => clearInterval(timer);
   }, [rateLimitCountdown]);
+
+  // Check if form has any saved content
+  const hasDraft = formData.name || formData.email || formData.subject || formData.message;
+
+  const handleClearDraft = () => {
+    setFormData({ name: "", email: "", subject: "", message: "" });
+    localStorage.removeItem(STORAGE_KEY);
+    formStartTime.current = null;
+    setErrors({});
+    toast({
+      title: "Draft cleared",
+      description: "Your saved form data has been removed.",
+    });
+  };
 
   const socials = [
     { icon: Github, label: "GitHub", href: "https://github.com/nikhilgamingff8-cyber" },
@@ -337,18 +351,31 @@ const Contact = () => {
                 </div>
               )}
               
-              <button
-                type="submit"
-                disabled={isSubmitting || rateLimitCountdown > 0}
-                className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full font-body font-medium text-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {rateLimitCountdown > 0 
-                  ? `Wait ${rateLimitCountdown}s` 
-                  : isSubmitting 
-                    ? "Sending..." 
-                    : "Send Message"}
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <div className="flex flex-wrap items-center gap-4">
+                <button
+                  type="submit"
+                  disabled={isSubmitting || rateLimitCountdown > 0}
+                  className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full font-body font-medium text-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {rateLimitCountdown > 0 
+                    ? `Wait ${rateLimitCountdown}s` 
+                    : isSubmitting 
+                      ? "Sending..." 
+                      : "Send Message"}
+                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+                
+                {hasDraft && (
+                  <button
+                    type="button"
+                    onClick={handleClearDraft}
+                    className="inline-flex items-center gap-2 px-4 py-3 rounded-full border border-border text-muted-foreground font-body text-sm transition-colors hover:text-destructive hover:border-destructive"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                    Clear Draft
+                  </button>
+                )}
+              </div>
             </form>
           </div>
           
