@@ -4,26 +4,24 @@ const Skills = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   const skills = [
-    { name: "HTML5", level: 40, status: "Learning" },
-    { name: "CSS3", level: 30, status: "Learning" },
-    { name: "JavaScript", level: 15, status: "Beginner" },
+    { name: "HTML", level: 40, status: "Beginner" },
+    { name: "CSS", level: 35, status: "Beginner" },
+    { name: "JavaScript", level: 20, status: "Beginner" },
     { name: "Responsive Design", level: 25, status: "Learning" },
-    { name: "React", level: 10, status: "Beginner" },
-    { name: "Tailwind CSS", level: 20, status: "Learning" },
   ];
 
   const toolsAndSoftSkills = [
     {
       title: "Tools I Use",
-      items: ["VS Code", "Chrome DevTools", "GitHub", "Lovable"],
+      items: ["VS Code", "GitHub", "Chrome DevTools"],
     },
     {
       title: "Soft Skills",
-      items: ["Quick Learner", "Problem Solving", "Dedication", "Curiosity"],
+      items: ["Problem Solving", "Quick Learner", "Dedication", "Curiosity"],
     },
     {
-      title: "Next to Learn",
-      items: ["Git Commands", "Node.js", "TypeScript", "APIs"],
+      title: "Currently Learning",
+      items: ["Advanced CSS", "JavaScript DOM", "Git & GitHub"],
     },
   ];
 
