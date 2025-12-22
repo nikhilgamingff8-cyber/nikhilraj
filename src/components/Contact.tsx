@@ -259,9 +259,20 @@ const Contact = () => {
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block font-body text-sm font-medium text-foreground mb-2">
-                    Your Name
-                  </label>
+                  <div className="flex items-center justify-between mb-2">
+                    <label htmlFor="name" className="block font-body text-sm font-medium text-foreground">
+                      Your Name
+                    </label>
+                    <span className={`font-body text-xs ${
+                      formData.name.length > 80 
+                        ? formData.name.length > 95 
+                          ? 'text-destructive' 
+                          : 'text-amber-500' 
+                        : 'text-muted-foreground'
+                    }`}>
+                      {100 - formData.name.length}
+                    </span>
+                  </div>
                   <input
                     type="text"
                     id="name"
@@ -301,9 +312,20 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="subject" className="block font-body text-sm font-medium text-foreground mb-2">
-                  Subject
-                </label>
+                <div className="flex items-center justify-between mb-2">
+                  <label htmlFor="subject" className="block font-body text-sm font-medium text-foreground">
+                    Subject
+                  </label>
+                  <span className={`font-body text-xs ${
+                    formData.subject.length > 160 
+                      ? formData.subject.length > 190 
+                        ? 'text-destructive' 
+                        : 'text-amber-500' 
+                      : 'text-muted-foreground'
+                  }`}>
+                    {200 - formData.subject.length}
+                  </span>
+                </div>
                 <input
                   type="text"
                   id="subject"
