@@ -62,11 +62,12 @@ const Education = () => {
                       </h5>
                       <ul className="space-y-2">
                         {[
-                          "Data Structures & Algorithms",
                           "Computer Programming",
                           "Engineering Mathematics",
                           "Physics & Chemistry",
-                          "Material Science Fundamentals",
+                          "Engineering Graphics",
+                          "Basic Electrical Engineering",
+                          "Mechanics & Thermodynamics",
                         ].map((course, index) => (
                           <li 
                             key={index}
@@ -86,7 +87,6 @@ const Education = () => {
                       <ul className="space-y-2">
                         {[
                           "JEE Mains Qualified",
-                          "Active in Technical Clubs",
                           "Web Development Projects",
                           "Continuous Learning Mindset",
                           "Problem-Solving Enthusiast",
