@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { Clock } from "lucide-react";
 import { Mail, MapPin, Github, Linkedin, Send, Twitter } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useToast } from "@/hooks/use-toast";
@@ -46,6 +47,24 @@ const Contact = () => {
   const [honeypot, setHoneypot] = useState(""); // Honeypot field - should remain empty
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
   const formStartTime = useRef<number | null>(null); // Track when user starts interacting
+  const [rateLimitCountdown, setRateLimitCountdown] = useState<number>(0); // Countdown timer for rate limiting
+
+  // Countdown timer effect
+  useEffect(() => {
+    if (rateLimitCountdown <= 0) return;
+    
+    const timer = setInterval(() => {
+      setRateLimitCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [rateLimitCountdown]);
 
   const socials = [
     { icon: Github, label: "GitHub", href: "https://github.com/nikhilgamingff8-cyber" },
@@ -134,11 +153,23 @@ const Contact = () => {
       formStartTime.current = null; // Reset timer
     } catch (error: any) {
       console.error("Error sending message:", error);
-      toast({
-        title: "Error sending message",
-        description: error.message || "Please try again or email me directly.",
-        variant: "destructive",
-      });
+      
+      // Check if it's a rate limit error (429)
+      const errorContext = error?.context;
+      if (errorContext?.retryAfter) {
+        setRateLimitCountdown(errorContext.retryAfter);
+        toast({
+          title: "Too many requests",
+          description: `Please wait ${errorContext.retryAfter} seconds before trying again.`,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error sending message",
+          description: error.message || "Please try again or email me directly.",
+          variant: "destructive",
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -273,12 +304,25 @@ const Contact = () => {
                 )}
               </div>
               
+              {rateLimitCountdown > 0 && (
+                <div className="flex items-center gap-2 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+                  <Clock className="w-5 h-5 text-destructive" />
+                  <p className="text-sm text-destructive font-body">
+                    Too many requests. Please wait <span className="font-semibold">{rateLimitCountdown}s</span> before trying again.
+                  </p>
+                </div>
+              )}
+              
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || rateLimitCountdown > 0}
                 className="group inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full font-body font-medium text-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {rateLimitCountdown > 0 
+                  ? `Wait ${rateLimitCountdown}s` 
+                  : isSubmitting 
+                    ? "Sending..." 
+                    : "Send Message"}
                 <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
