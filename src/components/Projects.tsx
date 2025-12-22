@@ -6,28 +6,36 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Portfolio Website",
-      category: "Web Development",
-      description: "A personal portfolio showcasing my projects and skills with a modern, responsive design.",
-      tags: ["HTML", "CSS", "JavaScript"],
+      title: "This Portfolio",
+      category: "First Project",
+      description: "My very first web project! Built this portfolio to showcase my learning journey and connect with others.",
+      tags: ["React", "Tailwind CSS", "TypeScript"],
+      link: null,
+      status: "live",
     },
     {
-      title: "Landing Page",
-      category: "Frontend",
-      description: "A clean and responsive landing page built with modern CSS techniques and animations.",
-      tags: ["HTML5", "CSS3", "Responsive"],
-    },
-    {
-      title: "Interactive Form",
-      category: "JavaScript",
-      description: "A dynamic form with real-time validation and smooth user experience.",
-      tags: ["JavaScript", "Form Validation", "UX"],
-    },
-    {
-      title: "Coming Soon",
+      title: "Learning HTML & CSS",
       category: "In Progress",
-      description: "More exciting projects are in development. Stay tuned for updates!",
-      tags: ["React", "Tailwind CSS"],
+      description: "Currently mastering the fundamentals of web development through hands-on practice and tutorials.",
+      tags: ["HTML5", "CSS3", "Responsive Design"],
+      link: null,
+      status: "learning",
+    },
+    {
+      title: "JavaScript Basics",
+      category: "Coming Soon",
+      description: "Next on my learning path - diving into JavaScript to add interactivity to my projects.",
+      tags: ["JavaScript", "DOM", "ES6"],
+      link: null,
+      status: "planned",
+    },
+    {
+      title: "Future Projects",
+      category: "Roadmap",
+      description: "Excited to build real-world projects as I grow. Stay tuned for updates on my journey!",
+      tags: ["React", "Node.js", "APIs"],
+      link: null,
+      status: "planned",
     },
   ];
 
@@ -55,9 +63,24 @@ const Projects = () => {
             >
               <div className="aspect-video bg-muted relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center">
-                    <ArrowUpRight className="w-6 h-6 text-primary-foreground" />
+                {project.status === "live" && (
+                  <div className="absolute top-3 right-3 px-2 py-1 bg-green-500/90 text-white text-xs font-medium rounded-full">
+                    Live
+                  </div>
+                )}
+                {project.status === "learning" && (
+                  <div className="absolute top-3 right-3 px-2 py-1 bg-yellow-500/90 text-white text-xs font-medium rounded-full">
+                    Learning
+                  </div>
+                )}
+                {project.status === "planned" && (
+                  <div className="absolute top-3 right-3 px-2 py-1 bg-muted-foreground/50 text-white text-xs font-medium rounded-full">
+                    Coming Soon
+                  </div>
+                )}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-4xl opacity-30">
+                    {project.status === "live" ? "🚀" : project.status === "learning" ? "📚" : "💡"}
                   </div>
                 </div>
               </div>
