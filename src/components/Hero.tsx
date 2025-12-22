@@ -1,6 +1,19 @@
 import { ArrowDown } from "lucide-react";
+import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 
 const Hero = () => {
+  const typedText = useTypingAnimation({
+    words: [
+      "Aspiring Web Developer",
+      "Frontend Enthusiast",
+      "B.Tech Student",
+      "Problem Solver",
+    ],
+    typingSpeed: 80,
+    deletingSpeed: 40,
+    pauseDuration: 2000,
+  });
+
   return (
     <section className="min-h-screen flex flex-col justify-center relative px-6 md:px-12 lg:px-24">
       <div className="absolute inset-0 overflow-hidden">
@@ -25,10 +38,11 @@ const Hero = () => {
         </h1>
         
         <p 
-          className="font-display text-2xl md:text-3xl lg:text-4xl text-secondary-foreground italic mb-8 animate-fade-up"
+          className="font-display text-2xl md:text-3xl lg:text-4xl text-secondary-foreground italic mb-8 animate-fade-up h-12 md:h-14"
           style={{ animationDelay: '0.3s' }}
         >
-          Aspiring Web Developer
+          <span>{typedText}</span>
+          <span className="inline-block w-0.5 h-8 md:h-10 bg-primary ml-1 animate-pulse" />
         </p>
         
         <p 
