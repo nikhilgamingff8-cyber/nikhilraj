@@ -1,16 +1,16 @@
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Design",
-      skills: ["UI/UX Design", "Figma", "Adobe Creative Suite", "Prototyping", "Design Systems"],
+      title: "Paid Media",
+      skills: ["Google Ads", "Meta Ads", "LinkedIn Ads", "TikTok Ads", "Programmatic"],
     },
     {
-      title: "Development",
-      skills: ["React", "TypeScript", "Node.js", "Next.js", "Tailwind CSS"],
+      title: "Marketing",
+      skills: ["Campaign Strategy", "A/B Testing", "Conversion Optimization", "Analytics", "Brand Strategy"],
     },
     {
       title: "Tools",
-      skills: ["Git", "VS Code", "Vercel", "AWS", "Docker"],
+      skills: ["Google Analytics", "Meta Business Suite", "Looker Studio", "HubSpot", "Semrush"],
     },
   ];
 
