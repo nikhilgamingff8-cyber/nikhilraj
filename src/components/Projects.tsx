@@ -51,7 +51,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <article 
               key={index}
-              className={`group bg-card border border-border rounded-2xl overflow-hidden hover-lift cursor-pointer reveal-scale ${isVisible ? 'visible' : ''} stagger-${index + 1}`}
+              className={`group bg-card border border-border rounded-2xl overflow-hidden hover-lift reveal-scale ${isVisible ? 'visible' : ''} stagger-${index + 1} ${project.link ? 'cursor-pointer' : ''}`}
+              onClick={() => project.link && window.open(project.link, '_blank')}
             >
               <div className="aspect-video bg-muted relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent" />
