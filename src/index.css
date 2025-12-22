@@ -316,29 +316,41 @@
     @apply border-primary;
   }
 
-  /* Label animation for focused inputs */
-  .form-label {
-    @apply transition-all duration-200 ease-out;
-  }
-
-  .form-input:focus ~ .form-label,
-  .form-input:not(:placeholder-shown) ~ .form-label {
-    @apply text-primary font-medium;
-  }
-
-  /* Input wrapper for animated border effect */
-  .input-wrapper {
+  /* Floating label styles */
+  .floating-label-group {
     @apply relative;
   }
 
-  .input-wrapper::after {
-    content: '';
-    @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary transition-all duration-300 ease-out;
-    transform: translateX(-50%);
+  .floating-label-group .floating-input {
+    @apply pt-6 pb-2;
   }
 
-  .input-wrapper:focus-within::after {
-    @apply w-full;
+  .floating-label-group .floating-label {
+    @apply absolute left-4 text-muted-foreground font-body pointer-events-none transition-all duration-200 ease-out;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+  }
+
+  .floating-label-group .floating-input:focus ~ .floating-label,
+  .floating-label-group .floating-input:not(:placeholder-shown) ~ .floating-label,
+  .floating-label-group .floating-input.has-value ~ .floating-label {
+    @apply text-primary text-xs font-medium;
+    top: 0.75rem;
+    transform: translateY(0);
+  }
+
+  /* For textarea floating labels */
+  .floating-label-group .floating-textarea ~ .floating-label {
+    top: 1.25rem;
+    transform: translateY(0);
+  }
+
+  .floating-label-group .floating-textarea:focus ~ .floating-label,
+  .floating-label-group .floating-textarea:not(:placeholder-shown) ~ .floating-label,
+  .floating-label-group .floating-textarea.has-value ~ .floating-label {
+    @apply text-primary text-xs font-medium;
+    top: 0.5rem;
   }
 
   /* Glowing effect on focus */
