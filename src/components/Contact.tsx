@@ -31,7 +31,7 @@ const Contact = () => {
         
         <div className="flex items-center justify-center gap-2 text-muted-foreground font-body mb-8">
           <MapPin className="w-4 h-4" />
-          <span>San Francisco, CA</span>
+          <span>MANIT Bhopal, India</span>
         </div>
         
         <div className="flex justify-center gap-4">

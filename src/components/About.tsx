@@ -1,8 +1,8 @@
 const About = () => {
   const stats = [
-    { number: "5+", label: "Years Experience" },
-    { number: "100+", label: "Campaigns Run" },
-    { number: "$5M+", label: "Ad Spend Managed" },
+    { number: "3+", label: "Technologies" },
+    { number: "10+", label: "Projects Built" },
+    { number: "∞", label: "Learning Goals" },
   ];
 
   return (
@@ -18,15 +18,15 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
-                I'm an ads and marketing specialist passionate about 
-                creating high-impact campaigns that drive real business results. 
-                With expertise in paid media, performance marketing, and brand strategy, 
-                I help businesses scale their growth through data-driven advertising.
+                I am Nikhil, a B.Tech undergraduate in Material Science and 
+                Metallurgical Engineering at MANIT Bhopal. I am currently developing 
+                skills in web development, with a focus on building clean, responsive, 
+                and user-friendly websites using HTML, CSS, and JavaScript.
               </p>
               <p>
-                When I'm not optimizing campaigns, you can find me analyzing market trends, 
-                exploring new ad platforms, or brainstorming creative strategies 
-                that push boundaries and deliver exceptional ROI.
+                I am motivated by continuous learning and practical problem-solving, 
+                and I aim to apply my technical skills to real-world projects and 
+                professional opportunities.
               </p>
             </div>
           </div>

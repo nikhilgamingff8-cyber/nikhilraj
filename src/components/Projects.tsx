@@ -3,28 +3,28 @@ import { ArrowUpRight } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Growth Campaign",
-      category: "Paid Media",
-      description: "Scaled an online store from $50K to $500K monthly revenue through strategic Meta and Google Ads.",
-      tags: ["Meta Ads", "Google Ads", "ROAS 4.5x"],
+      title: "Portfolio Website",
+      category: "Web Development",
+      description: "A personal portfolio showcasing my projects and skills with a modern, responsive design.",
+      tags: ["HTML", "CSS", "JavaScript"],
     },
     {
-      title: "B2B Lead Generation",
-      category: "LinkedIn Ads",
-      description: "Generated 2,000+ qualified leads for a SaaS company with a 60% reduction in cost per lead.",
-      tags: ["LinkedIn Ads", "HubSpot", "ABM"],
+      title: "Landing Page",
+      category: "Frontend",
+      description: "A clean and responsive landing page built with modern CSS techniques and animations.",
+      tags: ["HTML5", "CSS3", "Responsive"],
     },
     {
-      title: "Brand Awareness Campaign",
-      category: "Programmatic",
-      description: "Reached 10M+ impressions across display and video for a consumer brand launch.",
-      tags: ["Display Ads", "YouTube", "Brand Lift"],
+      title: "Interactive Form",
+      category: "JavaScript",
+      description: "A dynamic form with real-time validation and smooth user experience.",
+      tags: ["JavaScript", "Form Validation", "UX"],
     },
     {
-      title: "App Install Campaign",
-      category: "Mobile Marketing",
-      description: "Drove 50K+ app installs at $1.20 CPI through TikTok and Meta campaigns.",
-      tags: ["TikTok Ads", "ASO", "Mobile"],
+      title: "Coming Soon",
+      category: "In Progress",
+      description: "More exciting projects are in development. Stay tuned for updates!",
+      tags: ["React", "Tailwind CSS"],
     },
   ];
 
