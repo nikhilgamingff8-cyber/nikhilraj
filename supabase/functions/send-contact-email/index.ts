@@ -14,6 +14,8 @@ interface ContactFormRequest {
   message: string;
   _hp?: string; // Honeypot field
   _ts?: number; // Time spent on form (ms)
+  _preview?: boolean; // Preview mode - returns HTML without sending
+  _previewType?: "notification" | "confirmation" | "both"; // Which template to preview
 }
 
 // ==========================================
@@ -270,34 +272,82 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(null, { headers: corsHeaders });
   }
 
-  // Get client IP for rate limiting
-  const clientIP = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || 
-                   req.headers.get("x-real-ip") || 
-                   "unknown";
-  
-  // Check rate limit
-  const rateLimit = checkRateLimit(clientIP);
-  if (!rateLimit.allowed) {
-    console.log(`Rate limit exceeded for IP: ${clientIP}`);
-    return new Response(
-      JSON.stringify({ 
-        error: "Too many requests. Please try again later.",
-        retryAfter: rateLimit.retryAfter 
-      }),
-      {
-        status: 429,
-        headers: { 
-          "Content-Type": "application/json", 
-          "Retry-After": String(rateLimit.retryAfter),
-          ...corsHeaders 
-        },
-      }
-    );
-  }
-
   try {
     const rawData = await req.json();
+
+    // ==========================================
+    // PREVIEW MODE - Returns HTML without sending
+    // ==========================================
+    if (rawData._preview === true) {
+      console.log("Preview mode activated");
+      
+      // Use sample data if not provided
+      const previewData: EmailTemplateData = {
+        name: rawData.name || "John Doe",
+        email: rawData.email || "john@example.com",
+        subject: rawData.subject || "Sample Subject Line",
+        message: rawData.message || "This is a sample message to preview how the email template will look. It includes enough text to show the layout properly.\n\nYou can customize the content by passing name, email, subject, and message in your request.",
+      };
+
+      const previewType = rawData._previewType || "both";
+      
+      let response: Record<string, unknown> = {
+        preview: true,
+        config: EMAIL_CONFIG,
+      };
+
+      if (previewType === "notification" || previewType === "both") {
+        response.notificationEmail = {
+          subject: `${EMAIL_CONFIG.notificationSubjectPrefix} ${previewData.subject}`,
+          html: generateNotificationEmail(previewData),
+        };
+      }
+
+      if (previewType === "confirmation" || previewType === "both") {
+        response.confirmationEmail = {
+          subject: EMAIL_CONFIG.confirmationSubject,
+          html: generateConfirmationEmail(previewData),
+        };
+      }
+
+      return new Response(
+        JSON.stringify(response),
+        {
+          status: 200,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    // ==========================================
+    // NORMAL MODE - Send emails
+    // ==========================================
     
+    // Get client IP for rate limiting
+    const clientIP = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || 
+                     req.headers.get("x-real-ip") || 
+                     "unknown";
+    
+    // Check rate limit
+    const rateLimit = checkRateLimit(clientIP);
+    if (!rateLimit.allowed) {
+      console.log(`Rate limit exceeded for IP: ${clientIP}`);
+      return new Response(
+        JSON.stringify({ 
+          error: "Too many requests. Please try again later.",
+          retryAfter: rateLimit.retryAfter 
+        }),
+        {
+          status: 429,
+          headers: { 
+            "Content-Type": "application/json", 
+            "Retry-After": String(rateLimit.retryAfter),
+            ...corsHeaders 
+          },
+        }
+      );
+    }
+
     // Honeypot check - if filled, silently reject (appears successful to bots)
     if (rawData._hp && rawData._hp.trim() !== "") {
       console.log("Honeypot triggered - likely bot submission");
