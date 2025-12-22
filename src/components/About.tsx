@@ -1,8 +1,8 @@
 const About = () => {
   const stats = [
     { number: "5+", label: "Years Experience" },
-    { number: "50+", label: "Projects Completed" },
-    { number: "30+", label: "Happy Clients" },
+    { number: "100+", label: "Campaigns Run" },
+    { number: "$5M+", label: "Ad Spend Managed" },
   ];
 
   return (
@@ -18,15 +18,15 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
-                I'm a creative developer based in San Francisco, passionate about 
-                building beautiful, functional, and user-centered digital experiences. 
-                With a background in both design and development, I bridge the gap 
-                between aesthetics and functionality.
+                I'm an ads and marketing specialist passionate about 
+                creating high-impact campaigns that drive real business results. 
+                With expertise in paid media, performance marketing, and brand strategy, 
+                I help businesses scale their growth through data-driven advertising.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new design trends, 
-                contributing to open-source projects, or enjoying a good cup of coffee 
-                while sketching new ideas.
+                When I'm not optimizing campaigns, you can find me analyzing market trends, 
+                exploring new ad platforms, or brainstorming creative strategies 
+                that push boundaries and deliver exceptional ROI.
               </p>
             </div>
           </div>

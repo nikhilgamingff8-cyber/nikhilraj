@@ -3,28 +3,28 @@ import { ArrowUpRight } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      category: "Web Development",
-      description: "A modern shopping experience with seamless checkout and real-time inventory.",
-      tags: ["React", "Node.js", "Stripe"],
+      title: "E-Commerce Growth Campaign",
+      category: "Paid Media",
+      description: "Scaled an online store from $50K to $500K monthly revenue through strategic Meta and Google Ads.",
+      tags: ["Meta Ads", "Google Ads", "ROAS 4.5x"],
     },
     {
-      title: "Finance Dashboard",
-      category: "UI/UX Design",
-      description: "Intuitive analytics dashboard for tracking investments and market trends.",
-      tags: ["Figma", "React", "D3.js"],
+      title: "B2B Lead Generation",
+      category: "LinkedIn Ads",
+      description: "Generated 2,000+ qualified leads for a SaaS company with a 60% reduction in cost per lead.",
+      tags: ["LinkedIn Ads", "HubSpot", "ABM"],
     },
     {
-      title: "Travel App",
-      category: "Mobile Design",
-      description: "A travel companion app with personalized recommendations and booking.",
-      tags: ["React Native", "Firebase"],
+      title: "Brand Awareness Campaign",
+      category: "Programmatic",
+      description: "Reached 10M+ impressions across display and video for a consumer brand launch.",
+      tags: ["Display Ads", "YouTube", "Brand Lift"],
     },
     {
-      title: "SaaS Landing Page",
-      category: "Web Design",
-      description: "High-converting landing page with micro-interactions and animations.",
-      tags: ["Next.js", "Framer Motion"],
+      title: "App Install Campaign",
+      category: "Mobile Marketing",
+      description: "Drove 50K+ app installs at $1.20 CPI through TikTok and Meta campaigns.",
+      tags: ["TikTok Ads", "ASO", "Mobile"],
     },
   ];
 
