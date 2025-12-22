@@ -234,11 +234,69 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     const notificationData = await notificationResponse.json();
-    console.log("Email sent successfully");
+    console.log("Notification email sent successfully");
 
     if (!notificationResponse.ok) {
       console.error("Failed to send notification email:", notificationData);
       throw new Error(notificationData.message || "Failed to send email");
+    }
+
+    // Send confirmation email to the sender
+    const confirmationResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: "Nikhil Raj <onboarding@resend.dev>",
+        to: [email],
+        subject: "Thank you for reaching out!",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
+            <div style="background: linear-gradient(135deg, #d97706, #f59e0b); padding: 30px; border-radius: 8px 8px 0 0;">
+              <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Thank you, ${escapeHtml(name)}!</h1>
+            </div>
+            <div style="padding: 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
+              <p style="color: #374151; font-size: 16px; line-height: 1.6;">
+                I've received your message and appreciate you taking the time to reach out. 
+                I'll review your inquiry and get back to you as soon as possible, usually within 24-48 hours.
+              </p>
+              
+              <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h3 style="color: #1f2937; margin-top: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Your Message Summary</h3>
+                <p style="color: #6b7280; margin: 8px 0;"><strong>Subject:</strong> ${escapeHtml(subject)}</p>
+                <p style="color: #6b7280; margin: 8px 0; white-space: pre-wrap;"><strong>Message:</strong> ${escapeHtml(message.substring(0, 200))}${message.length > 200 ? '...' : ''}</p>
+              </div>
+              
+              <p style="color: #374151; font-size: 16px; line-height: 1.6;">
+                In the meantime, feel free to connect with me on social media or check out my portfolio.
+              </p>
+              
+              <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+                <p style="color: #6b7280; font-size: 14px; margin: 0;">
+                  Best regards,<br>
+                  <strong style="color: #1f2937;">Nikhil Raj</strong><br>
+                  <span style="color: #d97706;">Computer Science Student @ MANIT Bhopal</span>
+                </p>
+              </div>
+              
+              <p style="color: #9ca3af; font-size: 12px; margin-top: 30px; text-align: center;">
+                This is an automated confirmation email. Please do not reply directly to this message.
+              </p>
+            </div>
+          </div>
+        `,
+      }),
+    });
+
+    const confirmationData = await confirmationResponse.json();
+    
+    if (!confirmationResponse.ok) {
+      // Log but don't fail - the main notification was sent
+      console.error("Failed to send confirmation email:", confirmationData);
+    } else {
+      console.log("Confirmation email sent successfully");
     }
 
     return new Response(
