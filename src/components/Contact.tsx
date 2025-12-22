@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Mail, MapPin, Github, Linkedin, Send, Twitter } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
+
+const MIN_FORM_TIME_MS = 3000; // Minimum 3 seconds to fill form
 
 // Zod validation schema
 const contactSchema = z.object({
@@ -43,6 +45,7 @@ const Contact = () => {
   });
   const [honeypot, setHoneypot] = useState(""); // Honeypot field - should remain empty
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
+  const formStartTime = useRef<number | null>(null); // Track when user starts interacting
 
   const socials = [
     { icon: Github, label: "GitHub", href: "https://github.com/nikhilgamingff8-cyber" },
@@ -54,6 +57,11 @@ const Contact = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     
+    // Track when user first starts typing
+    if (!formStartTime.current) {
+      formStartTime.current = Date.now();
+    }
+    
     // Clear error when user starts typing
     if (errors[name as keyof ContactFormData]) {
       setErrors({ ...errors, [name]: undefined });
@@ -64,8 +72,21 @@ const Contact = () => {
     e.preventDefault();
     setErrors({});
 
+    // Calculate time spent on form
+    const timeSpent = formStartTime.current ? Date.now() - formStartTime.current : 0;
+
     // Honeypot check - if filled, silently reject (bots fill hidden fields)
     if (honeypot) {
+      // Pretend success to not alert the bot
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      return;
+    }
+
+    // Time-based check - if submitted too quickly, silently reject
+    if (timeSpent < MIN_FORM_TIME_MS) {
       // Pretend success to not alert the bot
       toast({
         title: "Message sent!",
@@ -99,7 +120,7 @@ const Contact = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke("send-contact-email", {
-        body: { ...result.data, _hp: honeypot },
+        body: { ...result.data, _hp: honeypot, _ts: timeSpent },
       });
 
       if (error) throw error;
@@ -110,6 +131,7 @@ const Contact = () => {
       });
 
       setFormData({ name: "", email: "", subject: "", message: "" });
+      formStartTime.current = null; // Reset timer
     } catch (error: any) {
       console.error("Error sending message:", error);
       toast({
