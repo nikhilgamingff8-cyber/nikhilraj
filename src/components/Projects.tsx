@@ -10,7 +10,7 @@ const Projects = () => {
       category: "Main Project",
       description: "Developed a responsive personal portfolio to showcase projects, skills, and contact details. Built with modern web technologies.",
       tags: ["React", "Tailwind CSS", "TypeScript"],
-      link: null,
+      link: "https://github.com/nikhilgamingff8-cyber",
       status: "live",
     },
     {
