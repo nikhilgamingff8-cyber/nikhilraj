@@ -132,10 +132,9 @@ const Hero = () => {
               <img 
                 src={profilePhoto} 
                 alt="Nikhil Raj - Aspiring Web Developer"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
             </div>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
       </div>
