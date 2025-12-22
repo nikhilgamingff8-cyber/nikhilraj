@@ -56,7 +56,7 @@ const Hero = () => {
           style={{ animationDelay: '0.45s' }}
         >
           <a 
-            href="https://github.com/yourusername" 
+            href="https://github.com/nikhilgamingff8-cyber" 
             target="_blank" 
             rel="noopener noreferrer"
             className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300"
@@ -65,7 +65,7 @@ const Hero = () => {
             <Github className="w-5 h-5" />
           </a>
           <a 
-            href="https://linkedin.com/in/yourusername" 
+            href="https://www.linkedin.com/in/nikhil-raj-513a22393" 
             target="_blank" 
             rel="noopener noreferrer"
             className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300"
