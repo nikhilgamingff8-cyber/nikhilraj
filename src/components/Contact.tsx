@@ -63,15 +63,22 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto">
         <div className={`text-center mb-16 reveal ${isVisible ? 'visible' : ''}`}>
           <p className="text-primary font-body text-sm tracking-widest uppercase mb-4">
-            Get in Touch
+            Let's Connect
           </p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mb-6">
-            Let's create something <span className="text-gradient italic">amazing</span> together
+            I would love to <span className="text-gradient italic">hear from you</span>
           </h2>
-          <p className="text-muted-foreground font-body text-lg md:text-xl max-w-2xl mx-auto">
-            I'm always open to discussing new projects, creative ideas, or 
-            opportunities to be part of your vision.
+          <p className="text-muted-foreground font-body text-lg md:text-xl max-w-2xl mx-auto mb-4">
+            Whether you want to collaborate, mentor me, share learning resources, 
+            or just say hi — my inbox is always open!
           </p>
+          <div className="inline-block bg-primary/10 border border-primary/20 rounded-xl px-6 py-4 max-w-xl">
+            <p className="text-foreground font-body text-sm">
+              🌱 <span className="font-medium">As a beginner</span>, I am actively looking for mentorship, 
+              internship opportunities, and connections with fellow developers. 
+              Do not hesitate to reach out — I appreciate every bit of guidance!
+            </p>
+          </div>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -157,9 +164,12 @@ const Contact = () => {
           {/* Contact Info */}
           <div className={`reveal-right ${isVisible ? 'visible' : ''}`}>
             <div className="bg-card border border-border rounded-2xl p-8 md:p-10">
-              <h3 className="font-display text-2xl font-semibold mb-6">
+              <h3 className="font-display text-2xl font-semibold mb-2">
                 Contact Information
               </h3>
+              <p className="text-muted-foreground font-body text-sm mb-6">
+                Feel free to reach out anytime. I usually respond within 24 hours!
+              </p>
               
               <div className="space-y-6 mb-8">
                 <a 
@@ -185,9 +195,22 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
+
+              {/* What I'm Looking For */}
+              <div className="bg-secondary/50 rounded-xl p-4 mb-6">
+                <p className="font-body text-sm font-medium text-foreground mb-2">What I am looking for:</p>
+                <ul className="space-y-1">
+                  {["Mentorship & Guidance", "Internship Opportunities", "Learning Resources", "Collaboration with Beginners"].map((item, index) => (
+                    <li key={index} className="flex items-center gap-2 text-muted-foreground font-body text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
               
               <div className="pt-6 border-t border-border">
-                <p className="font-body text-sm text-muted-foreground mb-4">Follow me on</p>
+                <p className="font-body text-sm text-muted-foreground mb-4">Connect with me on</p>
                 <div className="flex gap-4">
                   {socials.map((social, index) => (
                     <a
