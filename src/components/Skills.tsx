@@ -1,4 +1,8 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const Skills = () => {
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   const skillCategories = [
     {
       title: "Frontend",
@@ -15,9 +19,13 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
+    <section 
+      id="skills" 
+      className="py-24 md:py-32 px-6 md:px-12 lg:px-24"
+      ref={sectionRef as React.RefObject<HTMLElement>}
+    >
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 reveal ${isVisible ? 'visible' : ''}`}>
           <p className="text-primary font-body text-sm tracking-widest uppercase mb-4">
             Expertise
           </p>
@@ -30,7 +38,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div 
               key={index}
-              className="bg-card border border-border rounded-2xl p-8 hover-lift"
+              className={`bg-card border border-border rounded-2xl p-8 hover-lift reveal-scale ${isVisible ? 'visible' : ''} stagger-${index + 1}`}
             >
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <span className="text-primary font-display text-xl font-semibold">

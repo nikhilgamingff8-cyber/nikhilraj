@@ -1,6 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Projects = () => {
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   const projects = [
     {
       title: "Portfolio Website",
@@ -29,9 +32,13 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-secondary/30">
+    <section 
+      id="projects" 
+      className="py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-secondary/30"
+      ref={sectionRef as React.RefObject<HTMLElement>}
+    >
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 reveal ${isVisible ? 'visible' : ''}`}>
           <p className="text-primary font-body text-sm tracking-widest uppercase mb-4">
             Selected Work
           </p>
@@ -44,7 +51,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <article 
               key={index}
-              className="group bg-card border border-border rounded-2xl overflow-hidden hover-lift cursor-pointer"
+              className={`group bg-card border border-border rounded-2xl overflow-hidden hover-lift cursor-pointer reveal-scale ${isVisible ? 'visible' : ''} stagger-${index + 1}`}
             >
               <div className="aspect-video bg-muted relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent" />

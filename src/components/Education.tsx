@@ -1,10 +1,17 @@
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Education = () => {
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   return (
-    <section id="education" className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
+    <section 
+      id="education" 
+      className="py-24 md:py-32 px-6 md:px-12 lg:px-24"
+      ref={sectionRef as React.RefObject<HTMLElement>}
+    >
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 reveal ${isVisible ? 'visible' : ''}`}>
           <p className="text-primary font-body text-sm tracking-widest uppercase mb-4">
             Education
           </p>
@@ -13,7 +20,7 @@ const Education = () => {
           </h2>
         </div>
         
-        <div className="max-w-3xl mx-auto">
+        <div className={`max-w-3xl mx-auto reveal-scale ${isVisible ? 'visible' : ''} stagger-2`}>
           <div className="bg-card border border-border rounded-2xl p-8 md:p-10 hover-lift relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
             

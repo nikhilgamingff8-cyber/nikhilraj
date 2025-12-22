@@ -1,4 +1,8 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const About = () => {
+  const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
+  
   const stats = [
     { number: "3+", label: "Technologies" },
     { number: "10+", label: "Projects Built" },
@@ -6,10 +10,14 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 md:py-32 px-6 md:px-12 lg:px-24">
+    <section 
+      id="about" 
+      className="py-24 md:py-32 px-6 md:px-12 lg:px-24"
+      ref={sectionRef as React.RefObject<HTMLElement>}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <div className={`reveal-left ${isVisible ? 'visible' : ''}`}>
             <p className="text-primary font-body text-sm tracking-widest uppercase mb-4">
               About Me
             </p>
@@ -31,7 +39,7 @@ const About = () => {
             </div>
           </div>
           
-          <div className="relative">
+          <div className={`relative reveal-right ${isVisible ? 'visible' : ''}`}>
             <div className="aspect-[4/5] bg-secondary rounded-2xl overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
               <div className="absolute inset-0 flex items-center justify-center">
