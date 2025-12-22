@@ -2,7 +2,7 @@ import { Mail, MapPin, Github, Linkedin } from "lucide-react";
 
 const Contact = () => {
   const socials = [
-    { icon: Github, label: "GitHub", href: "https://github.com" },
+    { icon: Github, label: "GitHub", href: "https://github.com/nikhilgamingff8-cyber" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/nikhil-raj-513a22393" },
   ];
 
