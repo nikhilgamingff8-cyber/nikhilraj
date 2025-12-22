@@ -56,6 +56,11 @@ const Projects = () => {
             >
               <div className="aspect-video bg-muted relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent" />
+                {project.link && (
+                  <div className="absolute top-3 left-3 p-2 bg-primary/90 text-primary-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                )}
                 {project.status === "live" && (
                   <div className="absolute top-3 right-3 px-2 py-1 bg-green-500/90 text-white text-xs font-medium rounded-full">
                     Live
