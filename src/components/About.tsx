@@ -37,7 +37,7 @@ const About = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-32 h-32 rounded-full bg-muted mx-auto mb-4 flex items-center justify-center">
-                    <span className="font-display text-4xl text-gradient">AM</span>
+                    <span className="font-display text-4xl text-gradient">NR</span>
                   </div>
                 </div>
               </div>
