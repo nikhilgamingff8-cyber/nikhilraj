@@ -1,4 +1,4 @@
-import { ArrowDown, Download } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin } from "lucide-react";
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 import FloatingParticles from "./FloatingParticles";
 
@@ -50,6 +50,30 @@ const Hero = () => {
           B.Tech student passionate about building clean, responsive, and user-friendly websites. 
           Driven by continuous learning and practical problem-solving.
         </p>
+
+        <div 
+          className="flex items-center gap-4 mb-8 animate-fade-up"
+          style={{ animationDelay: '0.45s' }}
+        >
+          <a 
+            href="https://github.com/yourusername" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300"
+            aria-label="GitHub Profile"
+          >
+            <Github className="w-5 h-5" />
+          </a>
+          <a 
+            href="https://linkedin.com/in/yourusername" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300"
+            aria-label="LinkedIn Profile"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+        </div>
         
         <div 
           className="flex flex-wrap gap-4 md:gap-6 animate-fade-up"
