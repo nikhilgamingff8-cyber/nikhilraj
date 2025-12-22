@@ -128,9 +128,12 @@ const Hero = () => {
           style={{ animationDelay: '0.2s' }}
         >
           <div className="relative animate-float">
-            {/* Gradient border wrapper */}
-            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-[6px] bg-gradient-to-br from-primary via-amber-400 to-orange-500 shadow-lg shadow-primary/40 animate-glow-pulse">
-              <div className="w-full h-full rounded-full overflow-hidden bg-background">
+            {/* Spinning gradient border */}
+            <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              {/* Spinning gradient background */}
+              <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,hsl(var(--primary)),#f59e0b,#f97316,#ef4444,#f97316,#f59e0b,hsl(var(--primary)))] animate-spin-slow" />
+              {/* Inner image container */}
+              <div className="absolute inset-[6px] rounded-full overflow-hidden bg-background">
                 <img 
                   src={profilePhoto} 
                   alt="Nikhil Raj - Aspiring Web Developer"
