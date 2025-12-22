@@ -13,7 +13,10 @@ interface ContactFormRequest {
   subject: string;
   message: string;
   _hp?: string; // Honeypot field
+  _ts?: number; // Time spent on form (ms)
 }
+
+const MIN_FORM_TIME_MS = 3000; // Minimum 3 seconds to fill form
 
 // Rate limiting configuration
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
@@ -164,7 +167,18 @@ const handler = async (req: Request): Promise<Response> => {
         }
       );
     }
-    
+
+    // Time-based check - reject if submitted too quickly (bots fill forms instantly)
+    if (typeof rawData._ts === "number" && rawData._ts < MIN_FORM_TIME_MS) {
+      console.log("Time-based check failed - form submitted too quickly:", rawData._ts, "ms");
+      return new Response(
+        JSON.stringify({ success: true, message: "Message sent successfully" }),
+        {
+          status: 200,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
     // Validate input
     const validation = validateInput(rawData);
     if (!validation.valid) {
