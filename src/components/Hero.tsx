@@ -128,7 +128,7 @@ const Hero = () => {
           style={{ animationDelay: '0.2s' }}
         >
           <div className="relative animate-float">
-            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 animate-glow-pulse">
+            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-foreground/20 ring-4 ring-primary/30 animate-glow-pulse">
               <img 
                 src={profilePhoto} 
                 alt="Nikhil Raj - Aspiring Web Developer"
