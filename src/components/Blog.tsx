@@ -1,43 +1,10 @@
 import { Calendar, Clock, ArrowRight, BookOpen, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { blogPosts } from "@/data/blogPosts";
 
 const Blog = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
-
-  const blogPosts = [
-    {
-      title: "My First Steps in Web Development",
-      excerpt: "How I discovered my passion for coding and decided to pursue a career in web development. From curiosity to commitment.",
-      date: "December 2024",
-      readTime: "3 min read",
-      category: "Journey",
-      featured: true,
-    },
-    {
-      title: "Understanding HTML Semantics",
-      excerpt: "Why semantic HTML matters for accessibility and SEO. Learning to structure web pages the right way from day one.",
-      date: "December 2024",
-      readTime: "4 min read",
-      category: "Technical",
-      featured: false,
-    },
-    {
-      title: "CSS Flexbox: A Beginner's Guide",
-      excerpt: "Breaking down CSS Flexbox concepts that finally made layout design click for me. Tips and tricks I wish I knew earlier.",
-      date: "December 2024",
-      readTime: "5 min read",
-      category: "Technical",
-      featured: false,
-    },
-    {
-      title: "Building My First Portfolio",
-      excerpt: "The process of creating this very portfolio you're viewing. Challenges faced, lessons learned, and what's next.",
-      date: "December 2024",
-      readTime: "6 min read",
-      category: "Project",
-      featured: false,
-    },
-  ];
 
   const getCategoryColor = (category: string) => {
     switch (category) {
@@ -77,7 +44,10 @@ const Blog = () => {
             key={index}
             className={`mb-12 reveal ${isVisible ? 'visible' : ''}`}
           >
-            <div className="relative bg-gradient-to-br from-primary/10 via-card to-card border border-primary/20 rounded-3xl p-8 md:p-12 overflow-hidden hover-lift group cursor-pointer">
+            <Link
+              to={`/blog/${post.slug}`}
+              className="block relative bg-gradient-to-br from-primary/10 via-card to-card border border-primary/20 rounded-3xl p-8 md:p-12 overflow-hidden hover-lift group"
+            >
               <div className="absolute top-4 right-4">
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/20 rounded-full">
                   <Sparkles className="w-4 h-4 text-primary" />
@@ -112,16 +82,17 @@ const Blog = () => {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         ))}
 
         {/* Other Posts Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {blogPosts.filter(post => !post.featured).map((post, index) => (
-            <article
-              key={index}
-              className={`bg-card border border-border rounded-2xl p-6 hover-lift group cursor-pointer reveal-scale ${isVisible ? 'visible' : ''} stagger-${index + 1}`}
+            <Link
+              key={post.slug}
+              to={`/blog/${post.slug}`}
+              className={`bg-card border border-border rounded-2xl p-6 hover-lift group reveal-scale ${isVisible ? 'visible' : ''} stagger-${index + 1}`}
             >
               <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-4 ${getCategoryColor(post.category)}`}>
                 {post.category}
@@ -142,7 +113,7 @@ const Blog = () => {
                   <span>{post.readTime}</span>
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 
