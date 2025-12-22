@@ -128,12 +128,15 @@ const Hero = () => {
           style={{ animationDelay: '0.2s' }}
         >
           <div className="relative animate-float">
-            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-[6px] border-primary shadow-lg shadow-primary/40 animate-glow-pulse">
-              <img 
-                src={profilePhoto} 
-                alt="Nikhil Raj - Aspiring Web Developer"
-                className="w-full h-full object-cover object-center"
-              />
+            {/* Gradient border wrapper */}
+            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full p-[6px] bg-gradient-to-br from-primary via-amber-400 to-orange-500 shadow-lg shadow-primary/40 animate-glow-pulse">
+              <div className="w-full h-full rounded-full overflow-hidden bg-background">
+                <img 
+                  src={profilePhoto} 
+                  alt="Nikhil Raj - Aspiring Web Developer"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
             </div>
           </div>
         </div>
