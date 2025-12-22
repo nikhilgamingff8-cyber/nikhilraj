@@ -322,9 +322,20 @@ const Contact = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block font-body text-sm font-medium text-foreground mb-2">
-                  Message
-                </label>
+                <div className="flex items-center justify-between mb-2">
+                  <label htmlFor="message" className="block font-body text-sm font-medium text-foreground">
+                    Message
+                  </label>
+                  <span className={`font-body text-xs ${
+                    formData.message.length > 4500 
+                      ? formData.message.length > 4900 
+                        ? 'text-destructive' 
+                        : 'text-amber-500' 
+                      : 'text-muted-foreground'
+                  }`}>
+                    {5000 - formData.message.length} characters remaining
+                  </span>
+                </div>
                 <textarea
                   id="message"
                   name="message"
