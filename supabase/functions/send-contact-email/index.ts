@@ -16,6 +16,148 @@ interface ContactFormRequest {
   _ts?: number; // Time spent on form (ms)
 }
 
+// ==========================================
+// EMAIL TEMPLATE CONFIGURATION
+// Customize these settings to match your branding
+// ==========================================
+
+const EMAIL_CONFIG = {
+  // Sender Information
+  senderName: "Nikhil Raj",
+  senderTitle: "Computer Science Student @ MANIT Bhopal",
+  senderEmail: "nikhilgamingff8@gmail.com",
+  
+  // Branding Colors (use hex codes)
+  colors: {
+    primary: "#d97706",        // Main brand color (amber/gold)
+    primaryLight: "#f59e0b",   // Lighter variant for gradients
+    textDark: "#1f2937",       // Dark text color
+    textMedium: "#374151",     // Medium text color
+    textLight: "#6b7280",      // Light/muted text color
+    textMuted: "#9ca3af",      // Very muted text
+    background: "#ffffff",     // Email background
+    cardBg: "#f9fafb",         // Card/section background
+    border: "#e5e7eb",         // Border color
+  },
+  
+  // Email Content
+  notificationSubjectPrefix: "New Contact:",
+  confirmationSubject: "Thank you for reaching out!",
+  
+  // Response Time Promise
+  responseTime: "24-48 hours",
+  
+  // Social Links (optional - set to null to hide)
+  socialLinks: {
+    github: "https://github.com/nikhilgamingff8-cyber",
+    linkedin: "https://www.linkedin.com/in/nikhil-raj-513a22393",
+    twitter: "https://x.com/Nikhilraj302",
+  },
+};
+
+// ==========================================
+// EMAIL TEMPLATE FUNCTIONS
+// ==========================================
+
+interface EmailTemplateData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+// Generate notification email HTML (sent to you)
+function generateNotificationEmail(data: EmailTemplateData): string {
+  const { name, email, subject, message } = data;
+  const { colors, senderName } = EMAIL_CONFIG;
+  
+  return `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: ${colors.background};">
+      <div style="background: linear-gradient(135deg, ${colors.primary}, ${colors.primaryLight}); padding: 20px; border-radius: 8px 8px 0 0;">
+        <h2 style="color: ${colors.background}; margin: 0;">New Contact Form Submission</h2>
+      </div>
+      <div style="padding: 20px; border: 1px solid ${colors.border}; border-top: none; border-radius: 0 0 8px 8px;">
+        <div style="background: ${colors.cardBg}; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+          <p style="margin: 8px 0; color: ${colors.textDark};"><strong>Name:</strong> ${escapeHtml(name)}</p>
+          <p style="margin: 8px 0; color: ${colors.textDark};"><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}" style="color: ${colors.primary};">${escapeHtml(email)}</a></p>
+          <p style="margin: 8px 0; color: ${colors.textDark};"><strong>Subject:</strong> ${escapeHtml(subject)}</p>
+        </div>
+        <div style="background: ${colors.background}; padding: 20px; border: 1px solid ${colors.border}; border-radius: 8px;">
+          <h3 style="margin-top: 0; color: ${colors.textDark};">Message:</h3>
+          <p style="white-space: pre-wrap; color: ${colors.textMedium};">${escapeHtml(message)}</p>
+        </div>
+        <p style="color: ${colors.textLight}; font-size: 12px; margin-top: 20px;">
+          Reply directly to this email to respond to ${escapeHtml(name)}.
+        </p>
+      </div>
+    </div>
+  `;
+}
+
+// Generate confirmation email HTML (sent to sender)
+function generateConfirmationEmail(data: EmailTemplateData): string {
+  const { name, subject, message } = data;
+  const { colors, senderName, senderTitle, responseTime, socialLinks } = EMAIL_CONFIG;
+  
+  // Build social links HTML if available
+  let socialLinksHtml = '';
+  if (socialLinks) {
+    const links = [];
+    if (socialLinks.github) links.push(`<a href="${socialLinks.github}" style="color: ${colors.primary}; text-decoration: none; margin-right: 15px;">GitHub</a>`);
+    if (socialLinks.linkedin) links.push(`<a href="${socialLinks.linkedin}" style="color: ${colors.primary}; text-decoration: none; margin-right: 15px;">LinkedIn</a>`);
+    if (socialLinks.twitter) links.push(`<a href="${socialLinks.twitter}" style="color: ${colors.primary}; text-decoration: none;">Twitter</a>`);
+    if (links.length > 0) {
+      socialLinksHtml = `
+        <div style="margin-top: 20px;">
+          <p style="color: ${colors.textLight}; font-size: 14px; margin-bottom: 8px;">Connect with me:</p>
+          <p>${links.join('')}</p>
+        </div>
+      `;
+    }
+  }
+  
+  // Truncate message for summary
+  const messageSummary = message.length > 200 ? message.substring(0, 200) + '...' : message;
+  
+  return `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: ${colors.background};">
+      <div style="background: linear-gradient(135deg, ${colors.primary}, ${colors.primaryLight}); padding: 30px; border-radius: 8px 8px 0 0;">
+        <h1 style="color: ${colors.background}; margin: 0; font-size: 24px;">Thank you, ${escapeHtml(name)}!</h1>
+      </div>
+      <div style="padding: 30px; border: 1px solid ${colors.border}; border-top: none; border-radius: 0 0 8px 8px;">
+        <p style="color: ${colors.textMedium}; font-size: 16px; line-height: 1.6;">
+          I've received your message and appreciate you taking the time to reach out. 
+          I'll review your inquiry and get back to you as soon as possible, usually within ${responseTime}.
+        </p>
+        
+        <div style="background: ${colors.cardBg}; padding: 20px; border-radius: 8px; margin: 20px 0;">
+          <h3 style="color: ${colors.textDark}; margin-top: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Your Message Summary</h3>
+          <p style="color: ${colors.textLight}; margin: 8px 0;"><strong>Subject:</strong> ${escapeHtml(subject)}</p>
+          <p style="color: ${colors.textLight}; margin: 8px 0; white-space: pre-wrap;"><strong>Message:</strong> ${escapeHtml(messageSummary)}</p>
+        </div>
+        
+        <p style="color: ${colors.textMedium}; font-size: 16px; line-height: 1.6;">
+          In the meantime, feel free to connect with me on social media or check out my portfolio.
+        </p>
+        
+        ${socialLinksHtml}
+        
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid ${colors.border};">
+          <p style="color: ${colors.textLight}; font-size: 14px; margin: 0;">
+            Best regards,<br>
+            <strong style="color: ${colors.textDark};">${senderName}</strong><br>
+            <span style="color: ${colors.primary};">${senderTitle}</span>
+          </p>
+        </div>
+        
+        <p style="color: ${colors.textMuted}; font-size: 12px; margin-top: 30px; text-align: center;">
+          This is an automated confirmation email. Please do not reply directly to this message.
+        </p>
+      </div>
+    </div>
+  `;
+}
+
 const MIN_FORM_TIME_MS = 3000; // Minimum 3 seconds to fill form
 
 // Rate limiting configuration
@@ -201,7 +343,10 @@ const handler = async (req: Request): Promise<Response> => {
     // Log without sensitive data (no email address)
     console.log("Received contact form submission from:", name);
 
-    // Send notification email to you (this always works with test domain)
+    // Prepare template data
+    const templateData: EmailTemplateData = { name, email, subject, message };
+
+    // Send notification email to you
     const notificationResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -209,26 +354,10 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Portfolio Contact <onboarding@resend.dev>",
-        to: ["nikhilgamingff8@gmail.com"],
-        subject: `New Contact: ${escapeHtml(subject)}`,
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #d97706;">New Contact Form Submission</h2>
-            <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
-              <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-              <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
-              <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
-            </div>
-            <div style="background: #fff; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px;">
-              <h3 style="margin-top: 0;">Message:</h3>
-              <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
-            </div>
-            <p style="color: #6b7280; font-size: 12px; margin-top: 20px;">
-              Reply directly to this email to respond to ${escapeHtml(name)}.
-            </p>
-          </div>
-        `,
+        from: `Portfolio Contact <onboarding@resend.dev>`,
+        to: [EMAIL_CONFIG.senderEmail],
+        subject: `${EMAIL_CONFIG.notificationSubjectPrefix} ${escapeHtml(subject)}`,
+        html: generateNotificationEmail(templateData),
         reply_to: email,
       }),
     });
@@ -249,44 +378,10 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Nikhil Raj <onboarding@resend.dev>",
+        from: `${EMAIL_CONFIG.senderName} <onboarding@resend.dev>`,
         to: [email],
-        subject: "Thank you for reaching out!",
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff;">
-            <div style="background: linear-gradient(135deg, #d97706, #f59e0b); padding: 30px; border-radius: 8px 8px 0 0;">
-              <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Thank you, ${escapeHtml(name)}!</h1>
-            </div>
-            <div style="padding: 30px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
-              <p style="color: #374151; font-size: 16px; line-height: 1.6;">
-                I've received your message and appreciate you taking the time to reach out. 
-                I'll review your inquiry and get back to you as soon as possible, usually within 24-48 hours.
-              </p>
-              
-              <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h3 style="color: #1f2937; margin-top: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">Your Message Summary</h3>
-                <p style="color: #6b7280; margin: 8px 0;"><strong>Subject:</strong> ${escapeHtml(subject)}</p>
-                <p style="color: #6b7280; margin: 8px 0; white-space: pre-wrap;"><strong>Message:</strong> ${escapeHtml(message.substring(0, 200))}${message.length > 200 ? '...' : ''}</p>
-              </div>
-              
-              <p style="color: #374151; font-size: 16px; line-height: 1.6;">
-                In the meantime, feel free to connect with me on social media or check out my portfolio.
-              </p>
-              
-              <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
-                <p style="color: #6b7280; font-size: 14px; margin: 0;">
-                  Best regards,<br>
-                  <strong style="color: #1f2937;">Nikhil Raj</strong><br>
-                  <span style="color: #d97706;">Computer Science Student @ MANIT Bhopal</span>
-                </p>
-              </div>
-              
-              <p style="color: #9ca3af; font-size: 12px; margin-top: 30px; text-align: center;">
-                This is an automated confirmation email. Please do not reply directly to this message.
-              </p>
-            </div>
-          </div>
-        `,
+        subject: EMAIL_CONFIG.confirmationSubject,
+        html: generateConfirmationEmail(templateData),
       }),
     });
 
