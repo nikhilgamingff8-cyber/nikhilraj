@@ -1,5 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
+import FloatingParticles from "./FloatingParticles";
 
 const Hero = () => {
   const typedText = useTypingAnimation({
@@ -15,11 +16,8 @@ const Hero = () => {
   });
 
   return (
-    <section className="min-h-screen flex flex-col justify-center relative px-6 md:px-12 lg:px-24">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-primary/3 rounded-full blur-3xl" />
-      </div>
+    <section className="min-h-screen flex flex-col justify-center relative px-6 md:px-12 lg:px-24 overflow-hidden">
+      <FloatingParticles />
       
       <div className="relative z-10 max-w-5xl">
         <p 
@@ -54,7 +52,7 @@ const Hero = () => {
         </p>
         
         <div 
-          className="flex gap-6 animate-fade-up"
+          className="flex flex-wrap gap-4 md:gap-6 animate-fade-up"
           style={{ animationDelay: '0.5s' }}
         >
           <a 
