@@ -12,6 +12,7 @@ interface ContactFormRequest {
   email: string;
   subject: string;
   message: string;
+  _hp?: string; // Honeypot field
 }
 
 // Rate limiting configuration
@@ -151,6 +152,18 @@ const handler = async (req: Request): Promise<Response> => {
 
   try {
     const rawData = await req.json();
+    
+    // Honeypot check - if filled, silently reject (appears successful to bots)
+    if (rawData._hp && rawData._hp.trim() !== "") {
+      console.log("Honeypot triggered - likely bot submission");
+      return new Response(
+        JSON.stringify({ success: true, message: "Message sent successfully" }),
+        {
+          status: 200,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
     
     // Validate input
     const validation = validateInput(rawData);

@@ -41,6 +41,7 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [honeypot, setHoneypot] = useState(""); // Honeypot field - should remain empty
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
 
   const socials = [
@@ -62,6 +63,16 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
+
+    // Honeypot check - if filled, silently reject (bots fill hidden fields)
+    if (honeypot) {
+      // Pretend success to not alert the bot
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      return;
+    }
 
     // Validate with Zod
     const result = contactSchema.safeParse(formData);
@@ -88,7 +99,7 @@ const Contact = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke("send-contact-email", {
-        body: result.data,
+        body: { ...result.data, _hp: honeypot },
       });
 
       if (error) throw error;
@@ -142,6 +153,19 @@ const Contact = () => {
           {/* Contact Form */}
           <div className={`reveal-left ${isVisible ? 'visible' : ''}`}>
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field - hidden from humans, bots will fill it */}
+              <div className="absolute -left-[9999px] opacity-0 h-0 overflow-hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block font-body text-sm font-medium text-foreground mb-2">
