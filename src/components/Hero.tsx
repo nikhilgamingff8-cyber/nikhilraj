@@ -1,4 +1,4 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 import FloatingParticles from "./FloatingParticles";
 
@@ -67,6 +67,14 @@ const Hero = () => {
             className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:bg-secondary hover:border-secondary"
           >
             Get in Touch
+          </a>
+          <a 
+            href="/resume.pdf" 
+            download="Nikhil_Raj_Resume.pdf"
+            className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
+          >
+            <Download className="w-4 h-4" />
+            Download CV
           </a>
         </div>
       </div>
