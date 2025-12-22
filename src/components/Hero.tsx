@@ -50,8 +50,9 @@ const Hero = () => {
             className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed mb-12 animate-fade-up"
             style={{ animationDelay: '0.4s' }}
           >
-            B.Tech student passionate about building clean, responsive, and user-friendly websites. 
-            Driven by continuous learning and practical problem-solving.
+            Motivated B.Tech first-year student at MANIT Bhopal with a strong interest in web development. 
+            Passionate about learning modern web technologies, building responsive websites, and improving 
+            problem-solving skills through hands-on projects.
           </p>
 
           <div 
