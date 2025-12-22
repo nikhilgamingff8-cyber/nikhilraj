@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, MapPin, Github, Linkedin, Send } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, Send, Twitter } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -18,6 +18,7 @@ const Contact = () => {
   const socials = [
     { icon: Github, label: "GitHub", href: "https://github.com/nikhilgamingff8-cyber" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/nikhil-raj-513a22393" },
+    { icon: Twitter, label: "Twitter/X", href: "https://x.com/yourusername" },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

@@ -1,4 +1,4 @@
-import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 import FloatingParticles from "./FloatingParticles";
 
@@ -79,6 +79,15 @@ const Hero = () => {
             aria-label="Email"
           >
             <Mail className="w-5 h-5" />
+          </a>
+          <a 
+            href="https://x.com/yourusername" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300"
+            aria-label="Twitter/X Profile"
+          >
+            <Twitter className="w-5 h-5" />
           </a>
         </div>
         
