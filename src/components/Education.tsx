@@ -49,11 +49,59 @@ const Education = () => {
                 </div>
                 
                 <div className="mt-6 pt-6 border-t border-border">
-                  <p className="text-muted-foreground font-body leading-relaxed">
+                  <p className="text-muted-foreground font-body leading-relaxed mb-6">
                     Pursuing a comprehensive engineering degree while simultaneously 
                     developing skills in web development. Focused on bridging technical 
                     engineering knowledge with modern software development practices.
                   </p>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-display text-lg font-medium mb-3 text-foreground">
+                        Relevant Coursework
+                      </h5>
+                      <ul className="space-y-2">
+                        {[
+                          "Data Structures & Algorithms",
+                          "Computer Programming",
+                          "Engineering Mathematics",
+                          "Physics & Chemistry",
+                          "Material Science Fundamentals",
+                        ].map((course, index) => (
+                          <li 
+                            key={index}
+                            className="flex items-center gap-2 text-muted-foreground font-body text-sm"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {course}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h5 className="font-display text-lg font-medium mb-3 text-foreground">
+                        Achievements
+                      </h5>
+                      <ul className="space-y-2">
+                        {[
+                          "JEE Mains Qualified",
+                          "Active in Technical Clubs",
+                          "Web Development Projects",
+                          "Continuous Learning Mindset",
+                          "Problem-Solving Enthusiast",
+                        ].map((achievement, index) => (
+                          <li 
+                            key={index}
+                            className="flex items-center gap-2 text-muted-foreground font-body text-sm"
+                          >
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
