@@ -1,10 +1,9 @@
-import { Mail, MapPin, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin } from "lucide-react";
 
 const Contact = () => {
   const socials = [
-    { icon: Github, label: "GitHub", href: "#" },
-    { icon: Linkedin, label: "LinkedIn", href: "#" },
-    { icon: Twitter, label: "Twitter", href: "#" },
+    { icon: Github, label: "GitHub", href: "https://github.com" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/nikhil-raj-513a22393" },
   ];
 
   return (
