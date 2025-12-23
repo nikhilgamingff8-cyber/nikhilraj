@@ -1,4 +1,4 @@
-import { GraduationCap, Calendar, MapPin, Award, BookOpen, Target } from "lucide-react";
+import { GraduationCap, Calendar, MapPin, Award, BookOpen, Target, School } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Education = () => {
@@ -20,8 +20,8 @@ const Education = () => {
           </h2>
         </div>
         
-        <div className={`max-w-4xl mx-auto reveal-scale ${isVisible ? 'visible' : ''} stagger-2`}>
-          {/* Main Education Card */}
+        <div className={`max-w-4xl mx-auto space-y-8 reveal-scale ${isVisible ? 'visible' : ''} stagger-2`}>
+          {/* Main Education Card - B.Tech */}
           <div className="bg-card border border-border rounded-2xl p-8 md:p-10 hover-lift relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
             
@@ -156,6 +156,56 @@ const Education = () => {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Class 12 Card */}
+          <div className="bg-card border border-border rounded-2xl p-6 md:p-8 hover-lift relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+            
+            <div className="relative z-10">
+              <div className="flex flex-col md:flex-row md:items-center gap-6">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <School className="w-8 h-8 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="px-3 py-1 bg-blue-500/20 text-blue-500 text-xs font-medium rounded-full">
+                      Completed
+                    </span>
+                    <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">
+                      Class 12th
+                    </span>
+                  </div>
+                  <h3 className="font-display text-xl md:text-2xl font-semibold mb-1">
+                    Higher Secondary Education
+                  </h3>
+                  <p className="text-primary font-body font-medium">
+                    Jawahar Navodaya Vidyalaya, Beekar Datia
+                  </p>
+                </div>
+                <div className="md:text-right">
+                  <div className="text-3xl md:text-4xl font-display font-bold text-primary">
+                    85.2%
+                  </div>
+                  <p className="text-sm text-muted-foreground font-body">CBSE Board</p>
+                </div>
+              </div>
+              
+              <div className="flex flex-wrap gap-4 mt-6 pt-6 border-t border-border/50 text-muted-foreground font-body text-sm">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  <span>Datia, Madhya Pradesh</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-primary" />
+                  <span>2024</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-primary" />
+                  <span>CBSE Board</span>
                 </div>
               </div>
             </div>
