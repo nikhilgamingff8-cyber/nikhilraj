@@ -1,4 +1,4 @@
-import { ArrowDown, Download, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail, Twitter, Briefcase } from "lucide-react";
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 import FloatingParticles from "./FloatingParticles";
 import profilePhoto from "@/assets/profile-photo.jpeg";
@@ -23,6 +23,19 @@ const Hero = () => {
       <div className="relative z-10 max-w-6xl w-full mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
         {/* Text Content */}
         <div className="flex-1">
+          {/* Availability Badge */}
+          <div 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 mb-6 animate-fade-up"
+            style={{ animationDelay: '0.05s' }}
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+            </span>
+            <Briefcase className="w-4 h-4 text-green-500" />
+            <span className="text-green-500 font-medium text-sm">Open for Internships</span>
+          </div>
+
           <p 
             className="text-muted-foreground font-body text-lg md:text-xl mb-4 animate-fade-up"
             style={{ animationDelay: '0.1s' }}
