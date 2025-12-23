@@ -4,7 +4,6 @@ import About from "@/components/About";
 import Education from "@/components/Education";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
-import GitHubActivity from "@/components/GitHubActivity";
 import Learning from "@/components/Learning";
 import Skills from "@/components/Skills";
 import Testimonials from "@/components/Testimonials";
@@ -20,7 +19,6 @@ const Index = () => {
       <Education />
       <Services />
       <Projects />
-      <GitHubActivity />
       <Learning />
       <Skills />
       <Testimonials />
