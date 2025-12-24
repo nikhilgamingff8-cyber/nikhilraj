@@ -11,8 +11,7 @@ interface StatItem {
 }
 
 const stats: StatItem[] = [
-  { icon: Layers, value: 10, suffix: "+", label: "Projects Completed", color: "from-primary to-primary/60" },
-  { icon: Code, value: 8, suffix: "+", label: "Technologies Learned", color: "from-blue-500 to-blue-400" },
+  { icon: Code, value: 8, suffix: "+", label: "Technologies Learned", color: "from-primary to-primary/60" },
   { icon: Clock, value: 500, suffix: "+", label: "Hours of Coding", color: "from-green-500 to-green-400" },
   { icon: Trophy, value: 5, suffix: "+", label: "Achievements", color: "from-yellow-500 to-yellow-400" },
   { icon: Coffee, value: 100, suffix: "+", label: "Cups of Coffee", color: "from-orange-500 to-orange-400" },
