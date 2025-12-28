@@ -6,10 +6,10 @@ import profilePhoto from "@/assets/profile-photo.jpeg";
 const Hero = () => {
   const typedText = useTypingAnimation({
     words: [
-      "Aspiring Web Developer",
-      "Frontend Enthusiast",
+      "Aspiring Ads Expert",
+      "Digital Marketing Enthusiast",
       "B.Tech Student",
-      "Problem Solver",
+      "Google Ads Learner",
     ],
     typingSpeed: 80,
     deletingSpeed: 40,
@@ -63,9 +63,9 @@ const Hero = () => {
             className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed mb-12 animate-fade-up"
             style={{ animationDelay: '0.4s' }}
           >
-            Motivated B.Tech first-year student at MANIT Bhopal with a strong interest in web development. 
-            Passionate about learning modern web technologies, building responsive websites, and improving 
-            problem-solving skills through hands-on projects.
+            Motivated B.Tech first-year student at MANIT Bhopal transitioning from web development to digital advertising. 
+            Passionate about learning Google Ads, Facebook Ads, and PPC strategies to help businesses grow 
+            through data-driven advertising campaigns.
           </p>
 
           <div 
@@ -150,7 +150,7 @@ const Hero = () => {
               <div className="absolute inset-[6px] rounded-full overflow-hidden bg-background">
                 <img 
                   src={profilePhoto} 
-                  alt="Nikhil Raj - Aspiring Web Developer"
+                  alt="Nikhil Raj - Aspiring Ads Expert"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
