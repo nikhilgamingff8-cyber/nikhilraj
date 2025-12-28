@@ -1,4 +1,4 @@
-import { Code, Palette, Smartphone, Globe, GraduationCap, Sparkles } from "lucide-react";
+import { Megaphone, Target, TrendingUp, BarChart3, MousePointerClick, Search } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Services = () => {
@@ -6,39 +6,39 @@ const Services = () => {
 
   const services = [
     {
-      icon: Code,
-      title: "Basic Websites",
-      description: "Learning to build simple, clean websites using HTML and CSS. Perfect for personal pages and portfolios.",
+      icon: Search,
+      title: "Google Ads Management",
+      description: "Search campaigns, display ads, and keyword optimization to drive targeted traffic and increase conversions.",
       status: "Learning",
     },
     {
-      icon: Smartphone,
-      title: "Responsive Layouts",
-      description: "Practicing how to make websites look great on phones, tablets, and desktops using CSS media queries.",
+      icon: Megaphone,
+      title: "Facebook & Meta Ads",
+      description: "Audience targeting, custom audiences, and retargeting campaigns to reach your ideal customers on social platforms.",
       status: "Learning",
     },
     {
-      icon: Palette,
-      title: "UI Design Basics",
-      description: "Exploring color theory, typography, and layout principles to create visually appealing designs.",
+      icon: MousePointerClick,
+      title: "PPC Campaign Management",
+      description: "Pay-per-click advertising strategies to maximize ROI and minimize cost per acquisition.",
       status: "Learning",
     },
     {
-      icon: Globe,
-      title: "Landing Pages",
-      description: "Working on creating single-page websites that are clean, modern, and user-friendly.",
+      icon: BarChart3,
+      title: "Analytics & Reporting",
+      description: "Google Analytics setup, conversion tracking, and detailed performance reports to measure campaign success.",
       status: "Soon",
     },
     {
-      icon: Sparkles,
-      title: "JavaScript Interactivity",
-      description: "Starting to learn JavaScript to add dynamic features and interactivity to web pages.",
+      icon: Target,
+      title: "Audience Research",
+      description: "In-depth market research and audience analysis to create highly targeted ad campaigns.",
       status: "Soon",
     },
     {
-      icon: GraduationCap,
-      title: "Open to Learn More",
-      description: "Excited to explore new technologies like React, Tailwind CSS, and more as I grow my skills.",
+      icon: TrendingUp,
+      title: "Conversion Optimization",
+      description: "A/B testing, landing page optimization, and funnel analysis to improve conversion rates.",
       status: "Future",
     },
   ];
@@ -65,14 +65,14 @@ const Services = () => {
       <div className="max-w-6xl mx-auto">
         <div className={`text-center mb-16 reveal ${isVisible ? 'visible' : ''}`}>
           <p className="text-primary font-body text-sm tracking-widest uppercase mb-4">
-            What I Am Learning
+            Digital Advertising
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-semibold mb-6">
-            Future <span className="text-gradient italic">Services</span>
+            Ads <span className="text-gradient italic">Services</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-            As a beginner, I am building my skills every day. Here is what I am learning 
-            and will soon be able to offer as a developer.
+            Building my expertise in digital advertising to help businesses grow through 
+            targeted paid campaigns and data-driven strategies.
           </p>
         </div>
         
