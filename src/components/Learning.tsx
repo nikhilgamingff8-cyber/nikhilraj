@@ -1,4 +1,4 @@
-import { BookOpen, Code, Palette, Zap, Target, CheckCircle, TrendingUp, Megaphone, MousePointerClick } from "lucide-react";
+import { BookOpen, Code, Palette, Zap, Target, CheckCircle, TrendingUp, Megaphone, MousePointerClick, GitBranch } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const Learning = () => {
@@ -22,6 +22,12 @@ const Learning = () => {
       category: "Programming",
       icon: Zap,
       description: "Fundamentals, DOM manipulation, ES6+, and async programming",
+    },
+    {
+      skill: "Git & GitHub",
+      category: "Version Control",
+      icon: GitBranch,
+      description: "Repositories, commits, branches, pull requests, and collaboration",
     },
   ];
 
@@ -81,7 +87,7 @@ const Learning = () => {
             <CheckCircle className="w-6 h-6 text-green-500" />
             <h3 className="font-display text-xl font-semibold">Completed Skills</h3>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {completedSkills.map((item, index) => (
               <div
                 key={index}
