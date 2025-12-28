@@ -14,20 +14,20 @@ const Projects = () => {
       status: "live",
     },
     {
-      title: "Learning Projects",
-      category: "Practice",
-      description: "Built small projects while learning HTML, CSS, and JavaScript fundamentals.",
+      title: "Contact Form",
+      category: "HTML/CSS/JS Project",
+      description: "Built a functional contact form with form validation and responsive design. Practiced JavaScript DOM manipulation and event handling.",
       tags: ["HTML", "CSS", "JavaScript"],
-      link: null,
-      status: "learning",
+      link: "https://github.com/nikhilgamingff8-cyber/contact-form",
+      status: "completed",
     },
     {
-      title: "Currently Learning",
-      category: "In Progress",
-      description: "Expanding knowledge in Advanced CSS, JavaScript DOM, and Git & GitHub version control.",
-      tags: ["Advanced CSS", "JavaScript DOM", "Git & GitHub"],
-      link: null,
-      status: "learning",
+      title: "HTML Day 1",
+      category: "Learning Project",
+      description: "First steps in web development learning HTML fundamentals including semantic elements, page structure, and basic styling.",
+      tags: ["HTML", "CSS"],
+      link: "https://github.com/nikhilgamingff8-cyber/HTML-day-1",
+      status: "completed",
     },
   ];
 
@@ -66,19 +66,14 @@ const Projects = () => {
                     Live
                   </div>
                 )}
-                {project.status === "learning" && (
-                  <div className="absolute top-3 right-3 px-2 py-1 bg-yellow-500/90 text-white text-xs font-medium rounded-full">
-                    Learning
-                  </div>
-                )}
-                {project.status === "planned" && (
-                  <div className="absolute top-3 right-3 px-2 py-1 bg-muted-foreground/50 text-white text-xs font-medium rounded-full">
-                    Coming Soon
+                {project.status === "completed" && (
+                  <div className="absolute top-3 right-3 px-2 py-1 bg-blue-500/90 text-white text-xs font-medium rounded-full">
+                    Completed
                   </div>
                 )}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-4xl opacity-30">
-                    {project.status === "live" ? "🚀" : project.status === "learning" ? "📚" : "💡"}
+                    {project.status === "live" ? "🚀" : "✅"}
                   </div>
                 </div>
               </div>
