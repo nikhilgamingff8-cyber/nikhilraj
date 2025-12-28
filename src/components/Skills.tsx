@@ -4,24 +4,24 @@ const Skills = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   const skills = [
-    { name: "HTML", level: 40, status: "Beginner" },
-    { name: "CSS", level: 35, status: "Beginner" },
-    { name: "JavaScript", level: 20, status: "Beginner" },
-    { name: "Responsive Design", level: 25, status: "Learning" },
+    { name: "Google Ads", level: 40, status: "Learning" },
+    { name: "Facebook/Meta Ads", level: 30, status: "Learning" },
+    { name: "PPC Campaigns", level: 25, status: "Learning" },
+    { name: "Analytics & Tracking", level: 20, status: "Learning" },
   ];
 
   const toolsAndSoftSkills = [
     {
-      title: "Tools I Use",
-      items: ["VS Code", "GitHub", "Chrome DevTools"],
+      title: "Ads Platforms",
+      items: ["Google Ads", "Facebook Ads Manager", "Google Analytics", "Meta Business Suite"],
     },
     {
       title: "Soft Skills",
-      items: ["Problem Solving", "Quick Learner", "Dedication", "Curiosity"],
+      items: ["Data Analysis", "Strategic Thinking", "Client Communication", "ROI Focus"],
     },
     {
       title: "Currently Learning",
-      items: ["Advanced CSS", "JavaScript DOM", "Git & GitHub"],
+      items: ["Campaign Optimization", "A/B Testing", "Conversion Tracking", "Audience Targeting"],
     },
   ];
 
@@ -43,17 +43,17 @@ const Skills = () => {
             My Progress
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-semibold mb-4">
-            Skills & <span className="text-gradient italic">Growth</span>
+            Ads <span className="text-gradient italic">Skills</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-            Honest progress bars showing where I am in my learning journey. 
-            Every expert was once a beginner!
+            Building my digital advertising expertise step by step. 
+            Learning to drive real results through paid campaigns!
           </p>
         </div>
 
         {/* Technical Skills with Progress Bars */}
         <div className={`bg-card border border-border rounded-2xl p-8 mb-8 reveal ${isVisible ? 'visible' : ''}`}>
-          <h3 className="font-display text-2xl font-semibold mb-8">Technical Skills</h3>
+          <h3 className="font-display text-2xl font-semibold mb-8">Advertising Skills</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {skills.map((skill, index) => (
               <div key={index} className="space-y-2">
