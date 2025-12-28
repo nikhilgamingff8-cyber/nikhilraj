@@ -1,35 +1,35 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Rocket, Heart, Target, BookOpen } from "lucide-react";
+import { Rocket, Heart, Target, BookOpen, TrendingUp, Megaphone } from "lucide-react";
 
 const About = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
   
   const stats = [
-    { number: "Day 1", label: "My Journey" },
+    { number: "HTML/CSS/JS", label: "Completed" },
     { number: "100%", label: "Dedication" },
-    { number: "∞", label: "Curiosity" },
+    { number: "Ads", label: "Next Goal" },
   ];
 
   const motivations = [
     {
       icon: Rocket,
-      title: "The Beginning",
-      description: "I started my coding journey today, and I am excited to see where it takes me.",
+      title: "My Journey",
+      description: "Started with web development basics and successfully completed HTML, CSS, and JavaScript fundamentals.",
     },
     {
-      icon: Heart,
-      title: "Why I Code",
-      description: "I love creating things from scratch and seeing my ideas come to life on screen.",
+      icon: TrendingUp,
+      title: "New Direction",
+      description: "Transitioning from web development to become a digital advertising expert focused on paid campaigns.",
+    },
+    {
+      icon: Megaphone,
+      title: "Ads Expert Goal",
+      description: "Learning Google Ads, Facebook Ads, and PPC strategies to help businesses grow through targeted advertising.",
     },
     {
       icon: Target,
-      title: "My Goal",
-      description: "To become a skilled web developer and build products that solve real problems.",
-    },
-    {
-      icon: BookOpen,
-      title: "Always Learning",
-      description: "Every day is a new opportunity to learn something new and grow as a developer.",
+      title: "My Vision",
+      description: "To master digital advertising and drive real results for clients through data-driven ad campaigns.",
     },
   ];
 
@@ -46,23 +46,23 @@ const About = () => {
               About Me
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-semibold mb-8 leading-tight">
-              A beginner with <span className="text-gradient italic">big dreams</span>
+              From code to <span className="text-gradient italic">conversions</span>
             </h2>
             <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
                 Hi, I am Nikhil Raj, a B.Tech undergraduate in Material Science and 
-                Metallurgical Engineering at MANIT Bhopal. I have just started my 
-                journey into web development, and I could not be more excited!
+                Metallurgical Engineering at MANIT Bhopal. I have completed my web 
+                development fundamentals and am now pursuing a new passion.
               </p>
               <p>
-                What motivates me? The magic of turning lines of code into something 
-                visual and interactive. The idea that I can build websites and apps 
-                that people actually use is incredibly inspiring.
+                After mastering HTML, CSS, and JavaScript, I discovered my true calling 
+                in digital advertising. The ability to connect businesses with their 
+                ideal customers through strategic ad campaigns fascinates me.
               </p>
               <p>
-                I know I am at the very beginning, but I believe that consistency 
-                and dedication will take me far. Every expert was once a beginner, 
-                and I am ready to put in the work to achieve my goals.
+                I am now focused on becoming an ads expert, learning Google Ads, 
+                Facebook/Meta Ads, and PPC campaign management. My goal is to help 
+                businesses grow through data-driven advertising strategies.
               </p>
             </div>
 
@@ -71,7 +71,7 @@ const About = () => {
               <div className="flex gap-8 justify-center">
                 {stats.map((stat, index) => (
                   <div key={index} className="text-center">
-                    <p className="font-display text-2xl md:text-3xl font-semibold text-gradient">
+                    <p className="font-display text-xl md:text-2xl font-semibold text-gradient">
                       {stat.number}
                     </p>
                     <p className="font-body text-sm text-muted-foreground mt-1">
