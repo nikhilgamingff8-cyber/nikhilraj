@@ -117,7 +117,7 @@ const Education = () => {
                     {[
                       "JEE Mains Qualified",
                       "Admitted to NIT Bhopal",
-                      "Started Coding Journey",
+                      "JNV National Wrestling",
                       "Built First Portfolio",
                       "Active Self-Learner",
                     ].map((achievement, index) => (
@@ -141,11 +141,11 @@ const Education = () => {
                   </div>
                   <ul className="space-y-2">
                     {[
-                      "Master Web Development",
-                      "Build Real Projects",
-                      "Learn React & Node.js",
-                      "Get an Internship",
-                      "Contribute to Open Source",
+                      "Master Google Ads",
+                      "Learn Facebook/Meta Ads",
+                      "Get Ads Certified",
+                      "Get Marketing Internship",
+                      "Run Real Ad Campaigns",
                     ].map((goal, index) => (
                       <li 
                         key={index}
