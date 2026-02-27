@@ -1,25 +1,25 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Rocket, Heart, Target, BookOpen, TrendingUp, Megaphone } from "lucide-react";
+import { Rocket, Dumbbell, Target, Megaphone } from "lucide-react";
 
 const About = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
   
   const stats = [
+    { number: "JNV National", label: "Wrestling" },
     { number: "HTML/CSS/JS", label: "Completed" },
-    { number: "100%", label: "Dedication" },
-    { number: "Ads", label: "Next Goal" },
+    { number: "Ads Expert", label: "Next Goal" },
   ];
 
   const motivations = [
     {
       icon: Rocket,
       title: "My Journey",
-      description: "Started with web development basics and successfully completed HTML, CSS, and JavaScript fundamentals.",
+      description: "From JNV student to national-level wrestler, then self-taught coder, now aspiring ads expert.",
     },
     {
-      icon: TrendingUp,
-      title: "New Direction",
-      description: "Transitioning from web development to become a digital advertising expert focused on paid campaigns.",
+      icon: Dumbbell,
+      title: "Sports & Discipline",
+      description: "Represented my school at the national level in wrestling during 12th class — building resilience and focus.",
     },
     {
       icon: Megaphone,
@@ -29,7 +29,7 @@ const About = () => {
     {
       icon: Target,
       title: "My Vision",
-      description: "To master digital advertising and drive real results for clients through data-driven ad campaigns.",
+      description: "Master digital advertising through discipline and data-driven campaigns that deliver real results.",
     },
   ];
 
@@ -51,18 +51,19 @@ const About = () => {
             <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
                 Hi, I am Nikhil Raj, a B.Tech undergraduate in Material Science and 
-                Metallurgical Engineering at MANIT Bhopal. I have completed my web 
-                development fundamentals and am now pursuing a new passion.
+                Metallurgical Engineering at MANIT Bhopal. I come from a JNV (Jawahar 
+                Navodaya Vidyalaya) background and represented my school at the national 
+                level in wrestling during 12th class.
               </p>
               <p>
-                After mastering HTML, CSS, and JavaScript, I discovered my true calling 
-                in digital advertising. The ability to connect businesses with their 
-                ideal customers through strategic ad campaigns fascinates me.
+                I started my tech journey by completing web development fundamentals — 
+                HTML, CSS, JavaScript, and Git & GitHub. This gave me a strong foundation 
+                in building things from scratch.
               </p>
               <p>
-                I am now focused on becoming an ads expert, learning Google Ads, 
-                Facebook/Meta Ads, and PPC campaign management. My goal is to help 
-                businesses grow through data-driven advertising strategies.
+                Now I am focused on becoming an ads expert, learning Google Ads, 
+                Facebook/Meta Ads, and PPC campaign management. My wrestling discipline 
+                drives me to push harder and achieve my goals in digital advertising.
               </p>
             </div>
 
