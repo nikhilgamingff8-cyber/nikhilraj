@@ -13,8 +13,9 @@ export default defineTool({
   },
   annotations: { readOnlyHint: false, destructiveHint: false, openWorldHint: true },
   handler: async ({ name, email, subject, message }) => {
-    const url = process.env.SUPABASE_URL;
-    const anon = process.env.SUPABASE_PUBLISHABLE_KEY ?? process.env.SUPABASE_ANON_KEY;
+    const env = (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env ?? {};
+    const url = env.SUPABASE_URL;
+    const anon = env.SUPABASE_PUBLISHABLE_KEY ?? env.SUPABASE_ANON_KEY;
     if (!url || !anon) {
       return {
         content: [{ type: "text", text: "Contact service is not configured." }],
