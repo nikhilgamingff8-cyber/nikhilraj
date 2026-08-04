@@ -37,7 +37,10 @@ const Education = () => {
                       Currently Pursuing
                     </span>
                     <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">
-                      1st Year
+                      3rd Semester
+                    </span>
+                    <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">
+                      CGPA: 6.8 / 10
                     </span>
                   </div>
                   <h3 className="font-display text-2xl md:text-3xl font-semibold mb-2">
@@ -72,10 +75,10 @@ const Education = () => {
               
               {/* Description */}
               <p className="text-muted-foreground font-body leading-relaxed mb-8">
-                I am a first-year B.Tech student at one of India's premier National Institutes of Technology. 
-                While my core study is Material Science and Metallurgical Engineering, I am passionate about 
-                web development and actively learning programming alongside my regular coursework. 
-                I believe in the power of combining engineering fundamentals with modern tech skills.
+                I am currently pursuing my B.Tech in Metallurgical and Materials Science Engineering at Maulana Azad National Institute of Technology (MANIT), Bhopal.
+              </p>
+              <p className="text-muted-foreground font-body leading-relaxed mb-8">
+                Alongside my engineering studies, I actively build responsive websites and real-world web applications. I enjoy learning modern web technologies through practical projects and continuously improving my frontend development skills.
               </p>
               
               {/* Three Column Grid */}
@@ -89,11 +92,11 @@ const Education = () => {
                   </div>
                   <ul className="space-y-2">
                     {[
-                      "Engineering Mathematics",
-                      "Physics",
-                      "Chemistry",
-                      "Basic Programming",
-                      "Engineering Graphics",
+                      "Physical Metallurgy",
+                      "Materials Characterization",
+                      "Manufacturing Processes",
+                      "Entrepreneurship",
+                      "Probability & Statistics",
                     ].map((course, index) => (
                       <li 
                         key={index}
@@ -115,11 +118,11 @@ const Education = () => {
                   </div>
                   <ul className="space-y-2">
                     {[
-                      "JEE Mains Qualified",
-                      "Admitted to NIT Bhopal",
-                      "JNV National Wrestling",
-                      "Built First Portfolio",
-                      "Active Self-Learner",
+                      "Selected for MANIT Bhopal",
+                      "India International Science Festival (IISF) 2022",
+                      "INSPIRE MANAK Award Selection",
+                      "NVS Level Wrestling Participant",
+                      "Built Multiple Live Websites",
                     ].map((achievement, index) => (
                       <li 
                         key={index}
@@ -141,11 +144,11 @@ const Education = () => {
                   </div>
                   <ul className="space-y-2">
                     {[
-                      "Master Google Ads",
-                      "Learn Facebook/Meta Ads",
-                      "Get Ads Certified",
-                      "Get Marketing Internship",
-                      "Run Real Ad Campaigns",
+                      "Become a Frontend Web Developer",
+                      "Build Real-World Web Applications",
+                      "Contribute to Open Source Projects",
+                      "Secure a Software Internship",
+                      "Continuously Learn Modern Web Technologies",
                     ].map((goal, index) => (
                       <li 
                         key={index}
