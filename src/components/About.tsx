@@ -1,35 +1,35 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Rocket, Dumbbell, Target, Megaphone } from "lucide-react";
+import { Rocket, Star, Code, Target } from "lucide-react";
 
 const About = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
   
   const stats = [
-    { number: "JNV National", label: "Wrestling" },
-    { number: "HTML/CSS/JS", label: "Completed" },
-    { number: "Ads Expert", label: "Next Goal" },
+    { number: "Frontend", label: "Developer" },
+    { number: "HTML/CSS/JS", label: "Foundation" },
+    { number: "Projects", label: "Live" },
   ];
 
   const motivations = [
     {
       icon: Rocket,
       title: "My Journey",
-      description: "From JNV student to national-level wrestler, then self-taught coder, now aspiring ads expert.",
+      description: "Started learning web development from scratch and continuously building real-world projects to improve my skills.",
     },
     {
-      icon: Dumbbell,
-      title: "Sports & Discipline",
-      description: "Represented my school at the national level in wrestling during 12th class — building resilience and focus.",
+      icon: Star,
+      title: "Featured Project",
+      description: "Built The CampusX, a live student cashback platform that provides verified campaigns, detailed guides, tracker links, and payment proof support.",
     },
     {
-      icon: Megaphone,
-      title: "Ads Expert Goal",
-      description: "Learning Google Ads, Facebook Ads, and PPC strategies to help businesses grow through targeted advertising.",
+      icon: Code,
+      title: "Current Focus",
+      description: "Improving frontend development skills by creating responsive websites, landing pages, and user-friendly web applications.",
     },
     {
       icon: Target,
-      title: "My Vision",
-      description: "Master digital advertising through discipline and data-driven campaigns that deliver real results.",
+      title: "Career Goal",
+      description: "To become a skilled Frontend Web Developer and contribute to innovative products while continuously learning modern web technologies.",
     },
   ];
 
@@ -46,24 +46,23 @@ const About = () => {
               About Me
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-semibold mb-8 leading-tight">
-              From code to <span className="text-gradient italic">conversions</span>
+              Building Ideas Into <span className="text-gradient italic">Websites</span>
             </h2>
             <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
-                Hi, I am Nikhil Raj, a B.Tech undergraduate in Material Science and 
-                Metallurgical Engineering at MANIT Bhopal. I come from a JNV (Jawahar 
-                Navodaya Vidyalaya) background and represented my school at the national 
-                level in wrestling during 12th class.
+                Hi, I'm Nikhil Raj, a B.Tech student in Metallurgical and Materials Science 
+                Engineering at Maulana Azad National Institute of Technology (MANIT), Bhopal.
               </p>
               <p>
-                I started my tech journey by completing web development fundamentals — 
-                HTML, CSS, JavaScript, and Git & GitHub. This gave me a strong foundation 
-                in building things from scratch.
+                I enjoy building responsive websites and modern web applications that solve 
+                real-world problems. My journey into technology started with HTML, CSS, 
+                JavaScript, Git, and GitHub, and gradually expanded into creating complete 
+                web projects using modern AI-assisted development tools.
               </p>
               <p>
-                Now I am focused on becoming an ads expert, learning Google Ads, 
-                Facebook/Meta Ads, and PPC campaign management. My wrestling discipline 
-                drives me to push harder and achieve my goals in digital advertising.
+                Currently, I am focused on improving my frontend development skills by building 
+                practical projects, learning new technologies, and creating products that provide 
+                value to real users.
               </p>
             </div>
 
