@@ -77,22 +77,6 @@
         "outputSchema": null
       },
       {
-        "name": "get_services",
-        "title": "Get services",
-        "description": "List digital advertising services Nikhil Raj offers.",
-        "annotations": {
-          "readOnlyHint": true,
-          "idempotentHint": true,
-          "openWorldHint": false
-        },
-        "inputSchema": {
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "type": "object",
-          "properties": {}
-        },
-        "outputSchema": null
-      },
-      {
         "name": "send_contact_message",
         "title": "Send contact message",
         "description": "Send a message to Nikhil Raj via the portfolio contact form.",
