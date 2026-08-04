@@ -75,10 +75,10 @@ const Education = () => {
               
               {/* Description */}
               <p className="text-muted-foreground font-body leading-relaxed mb-8">
-                I am a first-year B.Tech student at one of India's premier National Institutes of Technology. 
-                While my core study is Material Science and Metallurgical Engineering, I am passionate about 
-                web development and actively learning programming alongside my regular coursework. 
-                I believe in the power of combining engineering fundamentals with modern tech skills.
+                I am currently pursuing my B.Tech in Metallurgical and Materials Science Engineering at Maulana Azad National Institute of Technology (MANIT), Bhopal.
+              </p>
+              <p className="text-muted-foreground font-body leading-relaxed mb-8">
+                Alongside my engineering studies, I actively build responsive websites and real-world web applications. I enjoy learning modern web technologies through practical projects and continuously improving my frontend development skills.
               </p>
               
               {/* Three Column Grid */}
