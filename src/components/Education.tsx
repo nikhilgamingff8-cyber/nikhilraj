@@ -92,11 +92,11 @@ const Education = () => {
                   </div>
                   <ul className="space-y-2">
                     {[
-                      "Engineering Mathematics",
-                      "Physics",
-                      "Chemistry",
-                      "Basic Programming",
-                      "Engineering Graphics",
+                      "Physical Metallurgy",
+                      "Materials Characterization",
+                      "Manufacturing Processes",
+                      "Entrepreneurship",
+                      "Probability & Statistics",
                     ].map((course, index) => (
                       <li 
                         key={index}
