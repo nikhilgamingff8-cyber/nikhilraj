@@ -116,34 +116,10 @@ var get_skills_default = defineTool4({
   }
 });
 
-// src/lib/mcp/tools/get-services.ts
-import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.23.0";
-var get_services_default = defineTool5({
-  name: "get_services",
-  title: "Get services",
-  description: "List digital advertising services Nikhil Raj offers.",
-  inputSchema: {},
-  annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
-  handler: () => {
-    const services = [
-      "Google Ads campaign setup & management",
-      "Facebook & Instagram Ads management",
-      "PPC strategy & optimization",
-      "Audience targeting & retargeting",
-      "Ad creative & copywriting",
-      "Analytics, tracking & reporting"
-    ];
-    return {
-      content: [{ type: "text", text: services.map((s) => `- ${s}`).join("\n") }],
-      structuredContent: { services }
-    };
-  }
-});
-
 // src/lib/mcp/tools/send-contact-message.ts
-import { defineTool as defineTool6 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z } from "npm:zod@^3.25.76";
-var send_contact_message_default = defineTool6({
+var send_contact_message_default = defineTool5({
   name: "send_contact_message",
   title: "Send contact message",
   description: "Send a message to Nikhil Raj via the portfolio contact form.",
@@ -198,8 +174,8 @@ var mcp_default = defineMcp({
   name: "nikhil-raj-portfolio-mcp",
   title: "Nikhil Raj Portfolio",
   version: "0.1.0",
-  instructions: "Tools for Nikhil Raj's portfolio. Read the about, education, projects, skills, and services, or send a contact message via `send_contact_message`.",
-  tools: [get_about_default, get_education_default, get_projects_default, get_skills_default, get_services_default, send_contact_message_default]
+  instructions: "Tools for Nikhil Raj's portfolio. Read the about, education, projects, and skills, or send a contact message via `send_contact_message`.",
+  tools: [get_about_default, get_education_default, get_projects_default, get_skills_default, send_contact_message_default]
 });
 
 // lovable-mcp-supabase-entry.ts
