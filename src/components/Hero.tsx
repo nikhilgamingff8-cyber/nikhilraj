@@ -62,9 +62,7 @@ const Hero = () => {
             className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed mb-12 animate-fade-up"
             style={{ animationDelay: '0.4s' }}
           >
-            Motivated B.Tech first-year student at MANIT Bhopal transitioning from web development to digital advertising. 
-            Passionate about learning Google Ads, Facebook Ads, and PPC strategies to help businesses grow 
-            through data-driven advertising campaigns.
+            I'm a B.Tech student at Maulana Azad National Institute of Technology (MANIT), Bhopal, passionate about building responsive websites and modern web applications. I enjoy creating user-friendly interfaces, deploying projects using GitHub and Netlify, and continuously improving my skills through real-world projects.
           </p>
 
           <div 
@@ -115,14 +113,15 @@ const Hero = () => {
               href="#projects" 
               className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
             >
-              View My Work
+              View My Projects
               <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
             </a>
             <a 
-              href="#contact" 
+              href="#projects" 
               className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:bg-secondary hover:border-secondary"
             >
-              Get in Touch
+              <Briefcase className="w-4 h-4" />
+              View The CampusX
             </a>
             <a 
               href="/resume.pdf" 
@@ -130,7 +129,7 @@ const Hero = () => {
               className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
             >
               <Download className="w-4 h-4" />
-              Download CV
+              Download Resume
             </a>
           </div>
         </div>
