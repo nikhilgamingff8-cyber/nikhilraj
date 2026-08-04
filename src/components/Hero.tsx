@@ -6,10 +6,9 @@ import profilePhoto from "@/assets/profile-photo.jpeg";
 const Hero = () => {
   const typedText = useTypingAnimation({
     words: [
-      "Aspiring Ads Expert",
-      "Digital Marketing Enthusiast",
-      "B.Tech Student",
-      "Google Ads Learner",
+      "Frontend Web Developer",
+      "AI-Assisted Website Builder",
+      "B.Tech Student at MANIT Bhopal",
     ],
     typingSpeed: 80,
     deletingSpeed: 40,
@@ -33,7 +32,7 @@ const Hero = () => {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
             </span>
             <Briefcase className="w-4 h-4 text-green-500" />
-            <span className="text-green-500 font-medium text-sm">Open for Internships</span>
+            <span className="text-green-500 font-medium text-sm">Open for Internships & Freelance</span>
           </div>
 
           <p 
