@@ -168,20 +168,13 @@ const Projects = () => {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex justify-center">
               <button
                 onClick={() => openLink(featuredProject.liveUrl)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-full font-body text-sm font-medium hover:bg-primary/90 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-full font-body text-sm font-medium hover:bg-primary/90 transition-colors min-w-[200px] justify-center"
               >
-                <ExternalLink className="w-4 h-4" />
-                Live Website
-              </button>
-              <button
-                onClick={() => openLink(featuredProject.repoUrl)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-border bg-card text-foreground rounded-full font-body text-sm font-medium hover:bg-secondary transition-colors"
-              >
-                <Github className="w-4 h-4" />
-                GitHub
+                <span>🚀</span>
+                Visit Live Website
               </button>
             </div>
           </div>
