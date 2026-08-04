@@ -1,4 +1,4 @@
-import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ExternalLink, Github, GraduationCap } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import campusxImage from "@/assets/project-campusx.jpg";
 import portfolioImage from "@/assets/project-portfolio.jpg";
@@ -24,6 +24,14 @@ const Projects = () => {
       "Regular Campaign Updates",
     ],
     tags: ["HTML5", "CSS3", "JavaScript", "Google AI Studio", "GitHub", "Netlify"],
+    learnings: [
+      "Structuring multi-page layouts with semantic HTML5",
+      "Building responsive, mobile-first UI with modern CSS",
+      "DOM manipulation and dynamic content rendering in JavaScript",
+      "Organising reusable components and consistent design systems",
+      "Version control with Git & GitHub and CI deployment on Netlify",
+      "Performance and accessibility basics for faster page loads",
+    ],
     image: campusxImage,
     liveUrl: "https://thecampusx.netlify.app/",
     repoUrl: "https://github.com/nikhilgamingff8-cyber/thecampusx",
@@ -50,7 +58,7 @@ const Projects = () => {
       tags: ["HTML", "CSS", "JavaScript"],
       image: collegeImage,
       liveUrl: null,
-      repoUrl: null,
+      repoUrl: "https://github.com/nikhilgamingff8-cyber/college-website",
       status: "completed",
     },
     {
@@ -61,7 +69,7 @@ const Projects = () => {
       tags: ["HTML", "CSS", "JavaScript"],
       image: htmlPracticeImage,
       liveUrl: null,
-      repoUrl: null,
+      repoUrl: "https://github.com/nikhilgamingff8-cyber/HTML-day-1",
       status: "completed",
     },
   ];
@@ -92,7 +100,7 @@ const Projects = () => {
         <article
           className={`group bg-card border border-border rounded-2xl overflow-hidden hover-lift reveal-scale ${isVisible ? "visible" : ""} stagger-1 mb-8 md:mb-12`}
         >
-          <div className="aspect-video md:aspect-[21/9] relative overflow-hidden">
+          <div className="aspect-video md:aspect-[16/8] relative overflow-hidden">
             <img
               src={featuredProject.image}
               alt={featuredProject.title}
@@ -101,12 +109,13 @@ const Projects = () => {
               width={1216}
               height={522}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
             <div className="absolute top-4 left-4 p-2 bg-primary/90 text-primary-foreground rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
               <ArrowUpRight className="w-4 h-4" />
             </div>
-            <div className="absolute top-4 right-4 px-3 py-1 bg-green-500/90 text-white text-xs font-medium rounded-full">
-              Live
+            <div className="absolute top-4 right-4 inline-flex items-center gap-2 px-3 py-1.5 bg-green-500/90 text-white text-xs font-medium rounded-full backdrop-blur-sm">
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+              Live Project
             </div>
           </div>
 
@@ -141,33 +150,51 @@ const Projects = () => {
               ))}
             </div>
 
+            <div className="rounded-xl border border-border bg-secondary/40 p-5 md:p-6 mb-8">
+              <h4 className="font-display text-lg font-semibold mb-4 flex items-center gap-2">
+                <GraduationCap className="w-5 h-5 text-primary" />
+                What I Learned
+              </h4>
+              <div className="grid sm:grid-cols-2 gap-2">
+                {featuredProject.learnings.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-2 text-sm text-muted-foreground font-body"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => openLink(featuredProject.liveUrl)}
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-full font-body text-sm font-medium hover:bg-primary/90 transition-colors"
               >
                 <ExternalLink className="w-4 h-4" />
-                🚀 Live Demo
+                Live Website
               </button>
               <button
                 onClick={() => openLink(featuredProject.repoUrl)}
                 className="inline-flex items-center gap-2 px-5 py-2.5 border border-border bg-card text-foreground rounded-full font-body text-sm font-medium hover:bg-secondary transition-colors"
               >
                 <Github className="w-4 h-4" />
-                💻 Source Code
+                GitHub
               </button>
             </div>
           </div>
         </article>
 
         {/* Other Projects */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {projects.map((project, index) => (
             <article
               key={index}
-              className={`group bg-card border border-border rounded-2xl overflow-hidden hover-lift reveal-scale ${isVisible ? "visible" : ""} stagger-${index + 2}`}
+              className={`group flex h-full flex-col bg-card border border-border rounded-2xl overflow-hidden hover-lift reveal-scale ${isVisible ? "visible" : ""} stagger-${index + 2}`}
             >
-              <div className="aspect-video relative overflow-hidden">
+              <div className="aspect-video relative shrink-0 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -194,7 +221,7 @@ const Projects = () => {
                 )}
               </div>
 
-              <div className="p-6 md:p-8">
+              <div className="flex flex-1 flex-col p-6 md:p-8">
                 <p className="text-primary font-body text-sm tracking-wide mb-2">
                   {project.category}
                 </p>
@@ -205,7 +232,7 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-6 mt-auto">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
@@ -223,7 +250,7 @@ const Projects = () => {
                       className="inline-flex items-center gap-1.5 px-4 py-2 bg-primary text-primary-foreground rounded-full font-body text-xs font-medium hover:bg-primary/90 transition-colors"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
-                      Live Demo
+                      Live Website
                     </button>
                   )}
                   {project.repoUrl && (
