@@ -118,11 +118,11 @@ const Education = () => {
                   </div>
                   <ul className="space-y-2">
                     {[
-                      "JEE Mains Qualified",
-                      "Admitted to NIT Bhopal",
-                      "JNV National Wrestling",
-                      "Built First Portfolio",
-                      "Active Self-Learner",
+                      "Selected for MANIT Bhopal",
+                      "India International Science Festival (IISF) 2022",
+                      "INSPIRE MANAK Award Selection",
+                      "NVS Level Wrestling Participant",
+                      "Built Multiple Live Websites",
                     ].map((achievement, index) => (
                       <li 
                         key={index}
