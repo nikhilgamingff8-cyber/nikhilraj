@@ -46,24 +46,23 @@ const About = () => {
               About Me
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-semibold mb-8 leading-tight">
-              From code to <span className="text-gradient italic">conversions</span>
+              Building Ideas Into <span className="text-gradient italic">Websites</span>
             </h2>
             <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
-                Hi, I am Nikhil Raj, a B.Tech undergraduate in Material Science and 
-                Metallurgical Engineering at MANIT Bhopal. I come from a JNV (Jawahar 
-                Navodaya Vidyalaya) background and represented my school at the national 
-                level in wrestling during 12th class.
+                Hi, I'm Nikhil Raj, a B.Tech student in Metallurgical and Materials Science 
+                Engineering at Maulana Azad National Institute of Technology (MANIT), Bhopal.
               </p>
               <p>
-                I started my tech journey by completing web development fundamentals — 
-                HTML, CSS, JavaScript, and Git & GitHub. This gave me a strong foundation 
-                in building things from scratch.
+                I enjoy building responsive websites and modern web applications that solve 
+                real-world problems. My journey into technology started with HTML, CSS, 
+                JavaScript, Git, and GitHub, and gradually expanded into creating complete 
+                web projects using modern AI-assisted development tools.
               </p>
               <p>
-                Now I am focused on becoming an ads expert, learning Google Ads, 
-                Facebook/Meta Ads, and PPC campaign management. My wrestling discipline 
-                drives me to push harder and achieve my goals in digital advertising.
+                Currently, I am focused on improving my frontend development skills by building 
+                practical projects, learning new technologies, and creating products that provide 
+                value to real users.
               </p>
             </div>
 
