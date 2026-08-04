@@ -148,7 +148,7 @@ const Hero = () => {
               <div className="absolute inset-[6px] rounded-full overflow-hidden bg-background">
                 <img 
                   src={profilePhoto} 
-                  alt="Nikhil Raj - Aspiring Ads Expert"
+                  alt="Nikhil Raj - Frontend Web Developer"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
