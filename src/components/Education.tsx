@@ -144,11 +144,11 @@ const Education = () => {
                   </div>
                   <ul className="space-y-2">
                     {[
-                      "Master Google Ads",
-                      "Learn Facebook/Meta Ads",
-                      "Get Ads Certified",
-                      "Get Marketing Internship",
-                      "Run Real Ad Campaigns",
+                      "Become a Frontend Web Developer",
+                      "Build Real-World Web Applications",
+                      "Contribute to Open Source Projects",
+                      "Secure a Software Internship",
+                      "Continuously Learn Modern Web Technologies",
                     ].map((goal, index) => (
                       <li 
                         key={index}
