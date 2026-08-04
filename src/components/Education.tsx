@@ -37,7 +37,10 @@ const Education = () => {
                       Currently Pursuing
                     </span>
                     <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">
-                      1st Year
+                      3rd Semester
+                    </span>
+                    <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">
+                      CGPA: 6.8 / 10
                     </span>
                   </div>
                   <h3 className="font-display text-2xl md:text-3xl font-semibold mb-2">
