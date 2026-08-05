@@ -63,7 +63,7 @@
       {
         "name": "get_skills",
         "title": "Get skills",
-        "description": "List Nikhil Raj's current skills across web basics and digital advertising tools.",
+        "description": "List Nikhil Raj's technical skills across programming, web development, and tools.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
