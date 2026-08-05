@@ -47,11 +47,13 @@ var get_education_default = defineTool2({
         type: "text",
         text: [
           "Education:",
-          "- Jawahar Navodaya Vidyalaya (JNV) \u2014 schooling",
-          "- Class 12: Represented at national level in wrestling",
-          "- Completed HTML, CSS, JavaScript, and Git & GitHub self-learning tracks",
+          "- B.Tech, Metallurgical and Materials Science Engineering \u2014 MANIT Bhopal (2025-2029), 3rd semester, CGPA 6.8",
+          "- Class XII \u2014 Jawahar Navodaya Vidyalaya, CBSE, 2024, 85.2%",
+          "- Class X \u2014 Jawahar Navodaya Vidyalaya, CBSE, 2022, 89.4%",
           "",
-          "Next goal: Become a digital advertising expert (Google Ads, Facebook Ads, PPC)."
+          "Achievements: INSPIRE MANAK Award, IISF 2022 participant, NVS Wrestling participant, built multiple live websites.",
+          "",
+          "Next goal: Become a skilled Frontend Web Developer and secure a frontend internship."
         ].join("\n")
       }
     ]
