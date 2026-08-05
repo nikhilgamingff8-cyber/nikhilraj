@@ -47,25 +47,23 @@ const About = () => {
               About Me
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-semibold mb-8 leading-tight">
-              Building Ideas Into <span className="text-gradient italic">Websites</span>
+              Building Through <span className="text-gradient italic">Code</span>
             </h2>
             <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
-                Hi, I'm Nikhil Raj, a B.Tech student in Metallurgical and Materials Science 
-                Engineering at Maulana Azad National Institute of Technology (MANIT), Bhopal.
+                Hi, I'm Nikhil Raj, a B.Tech student in Metallurgical and Materials Science
+                Engineering at MANIT Bhopal.
               </p>
               <p>
-                I enjoy building responsive websites and modern web applications that solve 
-                real-world problems. My journey into technology started with HTML, CSS, 
-                JavaScript, Git, and GitHub, and gradually expanded into creating complete 
-                web projects using modern AI-assisted development tools.
+                I enjoy building responsive websites and modern web applications using HTML, CSS,
+                JavaScript, GitHub, Netlify and AI-assisted development tools.
               </p>
               <p>
-                Currently, I am focused on improving my frontend development skills by building 
-                practical projects, learning new technologies, and creating products that provide 
-                value to real users.
+                I love solving real-world problems through technology and continuously improving
+                my skills by building practical projects.
               </p>
             </div>
+
 
             {/* Stats Card */}
             <div className="mt-8 bg-card border border-border rounded-2xl p-6">
