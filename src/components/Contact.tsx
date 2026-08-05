@@ -481,16 +481,30 @@ const Contact = () => {
                   </div>
                 </a>
                 
+                <a 
+                  href="tel:+918865038717"
+                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-body text-sm text-muted-foreground">Phone</p>
+                    <p className="font-body font-medium text-foreground">8865038717</p>
+                  </div>
+                </a>
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="font-body text-sm text-muted-foreground">Location</p>
-                    <p className="font-body font-medium text-foreground">MANIT Bhopal, India</p>
+                    <p className="font-body font-medium text-foreground">Bhopal, Madhya Pradesh</p>
                   </div>
                 </div>
               </div>
+
 
               {/* What I'm Looking For */}
               <div className="bg-secondary/50 rounded-xl p-4 mb-6">
