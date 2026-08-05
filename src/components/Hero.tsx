@@ -58,12 +58,18 @@ const Hero = () => {
             <span className="inline-block w-0.5 h-8 md:h-10 bg-primary ml-1 animate-pulse" />
           </p>
           
-          <p 
-            className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed mb-12 animate-fade-up"
+          <div 
+            className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed mb-12 space-y-4 animate-fade-up"
             style={{ animationDelay: '0.4s' }}
           >
-            I'm a B.Tech student at Maulana Azad National Institute of Technology (MANIT), Bhopal, passionate about building responsive websites and modern web applications. I enjoy creating user-friendly interfaces, deploying projects using GitHub and Netlify, and continuously improving my skills through real-world projects.
-          </p>
+            <p>
+              I'm a B.Tech student at Maulana Azad National Institute of Technology (MANIT), Bhopal, passionate about building responsive websites and modern web applications.
+            </p>
+            <p>
+              I enjoy building user-friendly interfaces, deploying websites using GitHub and Netlify, and continuously improving my frontend development skills through real-world projects.
+            </p>
+          </div>
+
 
           <div 
             className="flex items-center gap-4 mb-8 animate-fade-up"
