@@ -119,15 +119,8 @@ const Hero = () => {
               href="#projects" 
               className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
             >
-              View My Projects
+              View My Work
               <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
-            </a>
-            <a 
-              href="#projects" 
-              className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:bg-secondary hover:border-secondary"
-            >
-              <Briefcase className="w-4 h-4" />
-              View The CampusX
             </a>
             <a 
               href="/resume.pdf" 
@@ -137,6 +130,14 @@ const Hero = () => {
               <Download className="w-4 h-4" />
               Download Resume
             </a>
+            <a 
+              href="#contact" 
+              className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:bg-secondary hover:border-secondary"
+            >
+              <Mail className="w-4 h-4" />
+              Get In Touch
+            </a>
+
           </div>
         </div>
 
