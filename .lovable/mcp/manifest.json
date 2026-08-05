@@ -15,7 +15,7 @@
       {
         "name": "get_about",
         "title": "Get about",
-        "description": "Get Nikhil Raj's bio, background, and journey into digital advertising.",
+        "description": "Get Nikhil Raj's bio, background, and frontend web development journey.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -63,7 +63,7 @@
       {
         "name": "get_skills",
         "title": "Get skills",
-        "description": "List Nikhil Raj's current skills across web basics and digital advertising tools.",
+        "description": "List Nikhil Raj's technical skills across programming, web development, and tools.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,

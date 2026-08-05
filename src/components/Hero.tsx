@@ -58,12 +58,18 @@ const Hero = () => {
             <span className="inline-block w-0.5 h-8 md:h-10 bg-primary ml-1 animate-pulse" />
           </p>
           
-          <p 
-            className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed mb-12 animate-fade-up"
+          <div 
+            className="font-body text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed mb-12 space-y-4 animate-fade-up"
             style={{ animationDelay: '0.4s' }}
           >
-            I'm a B.Tech student at Maulana Azad National Institute of Technology (MANIT), Bhopal, passionate about building responsive websites and modern web applications. I enjoy creating user-friendly interfaces, deploying projects using GitHub and Netlify, and continuously improving my skills through real-world projects.
-          </p>
+            <p>
+              I'm a B.Tech student at Maulana Azad National Institute of Technology (MANIT), Bhopal, passionate about building responsive websites and modern web applications.
+            </p>
+            <p>
+              I enjoy building user-friendly interfaces, deploying websites using GitHub and Netlify, and continuously improving my frontend development skills through real-world projects.
+            </p>
+          </div>
+
 
           <div 
             className="flex items-center gap-4 mb-8 animate-fade-up"
@@ -88,7 +94,7 @@ const Hero = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a 
-              href="mailto:nikhilgamingff8@gmail.com"
+              href="mailto:nikhilraj270906@gmail.com"
               className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary hover:bg-primary/10 transition-all duration-300"
               aria-label="Email"
             >
@@ -113,15 +119,8 @@ const Hero = () => {
               href="#projects" 
               className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
             >
-              View My Projects
+              View My Work
               <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
-            </a>
-            <a 
-              href="#projects" 
-              className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:bg-secondary hover:border-secondary"
-            >
-              <Briefcase className="w-4 h-4" />
-              View The CampusX
             </a>
             <a 
               href="/resume.pdf" 
@@ -131,6 +130,14 @@ const Hero = () => {
               <Download className="w-4 h-4" />
               Download Resume
             </a>
+            <a 
+              href="#contact" 
+              className="inline-flex items-center gap-2 border border-border text-foreground px-8 py-4 rounded-full font-body font-medium transition-all duration-300 hover:bg-secondary hover:border-secondary"
+            >
+              <Mail className="w-4 h-4" />
+              Get In Touch
+            </a>
+
           </div>
         </div>
 

@@ -10,7 +10,7 @@ import { defineTool } from "npm:@lovable.dev/mcp-js@0.23.0";
 var get_about_default = defineTool({
   name: "get_about",
   title: "Get about",
-  description: "Get Nikhil Raj's bio, background, and journey into digital advertising.",
+  description: "Get Nikhil Raj's bio, background, and frontend web development journey.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
@@ -18,13 +18,15 @@ var get_about_default = defineTool({
       {
         type: "text",
         text: [
-          "Nikhil Raj \u2014 aspiring digital ads expert.",
+          "Nikhil Raj \u2014 Frontend Web Developer.",
           "",
-          "Background: Studied at Jawahar Navodaya Vidyalaya (JNV). Represented at the national level in wrestling during 12th class, which built discipline and resilience.",
+          "Education: B.Tech in Metallurgical and Materials Science Engineering at MANIT Bhopal (2025-2029), currently in the 3rd semester with a CGPA of 6.8.",
           "",
-          "Web foundations: Completed HTML, CSS, JavaScript, and Git & GitHub.",
+          "Background: Studied at Jawahar Navodaya Vidyalaya (JNV) and represented JNV in wrestling, which built discipline and consistency.",
           "",
-          "Current focus: Transitioning from web development into digital advertising \u2014 learning Google Ads, Facebook Ads, and PPC campaign strategy to become an ads expert."
+          "Skills: HTML, CSS, JavaScript, Python, C, Git & GitHub, Netlify deployment, responsive and mobile-first design, AI-assisted development tools.",
+          "",
+          "Current focus: Building responsive websites, landing pages, and modern web applications, and learning advanced JavaScript and React.js."
         ].join("\n")
       }
     ]
@@ -45,11 +47,13 @@ var get_education_default = defineTool2({
         type: "text",
         text: [
           "Education:",
-          "- Jawahar Navodaya Vidyalaya (JNV) \u2014 schooling",
-          "- Class 12: Represented at national level in wrestling",
-          "- Completed HTML, CSS, JavaScript, and Git & GitHub self-learning tracks",
+          "- B.Tech, Metallurgical and Materials Science Engineering \u2014 MANIT Bhopal (2025-2029), 3rd semester, CGPA 6.8",
+          "- Class XII \u2014 Jawahar Navodaya Vidyalaya, CBSE, 2024, 85.2%",
+          "- Class X \u2014 Jawahar Navodaya Vidyalaya, CBSE, 2022, 89.4%",
           "",
-          "Next goal: Become a digital advertising expert (Google Ads, Facebook Ads, PPC)."
+          "Achievements: INSPIRE MANAK Award, IISF 2022 participant, NVS Wrestling participant, built multiple live websites.",
+          "",
+          "Next goal: Become a skilled Frontend Web Developer and secure a frontend internship."
         ].join("\n")
       }
     ]
@@ -94,20 +98,28 @@ import { defineTool as defineTool4 } from "npm:@lovable.dev/mcp-js@0.23.0";
 var get_skills_default = defineTool4({
   name: "get_skills",
   title: "Get skills",
-  description: "List Nikhil Raj's current skills across web basics and digital advertising tools.",
+  description: "List Nikhil Raj's technical skills across programming, web development, and tools.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {
     const skills = {
-      web: ["HTML", "CSS", "JavaScript", "Git", "GitHub"],
-      advertising_learning: [
-        "Google Ads",
-        "Facebook Ads",
-        "PPC campaign management",
-        "Audience targeting",
-        "Ad copywriting",
-        "Analytics & tracking"
-      ]
+      programming: ["HTML5", "CSS3", "JavaScript", "Python", "C"],
+      web_development: [
+        "Responsive Web Design",
+        "Landing Page Development",
+        "Website Deployment",
+        "Mobile First Design"
+      ],
+      tools: [
+        "VS Code",
+        "Git",
+        "GitHub",
+        "Netlify",
+        "Google AI Studio",
+        "Canva",
+        "Google Sheets"
+      ],
+      currently_learning: ["Advanced JavaScript", "React.js", "AI Assisted Development"]
     };
     return {
       content: [{ type: "text", text: JSON.stringify(skills, null, 2) }],

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Clock, Trash2, CheckCircle } from "lucide-react";
-import { Mail, MapPin, Github, Linkedin, Send, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Globe, Github, Linkedin, Send, Twitter } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -117,6 +117,7 @@ const Contact = () => {
 
   const socials = [
     { icon: Github, label: "GitHub", href: "https://github.com/nikhilgamingff8-cyber" },
+    { icon: Globe, label: "Portfolio", href: "https://nikhilrajnitb.netlify.app/" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/nikhil-raj-513a22393" },
     { icon: Twitter, label: "Twitter/X", href: "https://x.com/Nikhilraj302" },
   ];
@@ -469,7 +470,7 @@ const Contact = () => {
               
               <div className="space-y-6 mb-8">
                 <a 
-                  href="mailto:nikhilgamingff8@gmail.com"
+                  href="mailto:nikhilraj270906@gmail.com"
                   className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -477,20 +478,34 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-body text-sm text-muted-foreground">Email</p>
-                    <p className="font-body font-medium text-foreground">nikhilgamingff8@gmail.com</p>
+                    <p className="font-body font-medium text-foreground">nikhilraj270906@gmail.com</p>
                   </div>
                 </a>
                 
+                <a 
+                  href="tel:+918865038717"
+                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-body text-sm text-muted-foreground">Phone</p>
+                    <p className="font-body font-medium text-foreground">8865038717</p>
+                  </div>
+                </a>
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="font-body text-sm text-muted-foreground">Location</p>
-                    <p className="font-body font-medium text-foreground">MANIT Bhopal, India</p>
+                    <p className="font-body font-medium text-foreground">Bhopal, Madhya Pradesh</p>
                   </div>
                 </div>
               </div>
+
 
               {/* What I'm Looking For */}
               <div className="bg-secondary/50 rounded-xl p-4 mb-6">

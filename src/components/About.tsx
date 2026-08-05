@@ -1,5 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Rocket, Star, Code, Target } from "lucide-react";
+import { Rocket, Trophy, Code, Target } from "lucide-react";
 
 const About = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
@@ -14,24 +14,25 @@ const About = () => {
     {
       icon: Rocket,
       title: "My Journey",
-      description: "Started learning web development from scratch and continuously building real-world projects to improve my skills.",
+      description: "Started learning web development from scratch and now building real-world projects.",
     },
     {
-      icon: Star,
-      title: "Featured Project",
-      description: "Built The CampusX, a live student cashback platform that provides verified campaigns, detailed guides, tracker links, and payment proof support.",
+      icon: Trophy,
+      title: "Sports & Discipline",
+      description: "Represented Jawahar Navodaya Vidyalaya in Wrestling which taught me discipline and consistency.",
     },
     {
       icon: Code,
-      title: "Current Focus",
-      description: "Improving frontend development skills by creating responsive websites, landing pages, and user-friendly web applications.",
+      title: "Web Development",
+      description: "Building responsive websites, landing pages and modern web applications.",
     },
     {
       icon: Target,
-      title: "Career Goal",
-      description: "To become a skilled Frontend Web Developer and contribute to innovative products while continuously learning modern web technologies.",
+      title: "Vision",
+      description: "Become a skilled Frontend Web Developer and build useful products for students.",
     },
   ];
+
 
   return (
     <section 
@@ -46,25 +47,23 @@ const About = () => {
               About Me
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-semibold mb-8 leading-tight">
-              Building Ideas Into <span className="text-gradient italic">Websites</span>
+              Building Through <span className="text-gradient italic">Code</span>
             </h2>
             <div className="space-y-6 text-muted-foreground font-body text-lg leading-relaxed">
               <p>
-                Hi, I'm Nikhil Raj, a B.Tech student in Metallurgical and Materials Science 
-                Engineering at Maulana Azad National Institute of Technology (MANIT), Bhopal.
+                Hi, I'm Nikhil Raj, a B.Tech student in Metallurgical and Materials Science
+                Engineering at MANIT Bhopal.
               </p>
               <p>
-                I enjoy building responsive websites and modern web applications that solve 
-                real-world problems. My journey into technology started with HTML, CSS, 
-                JavaScript, Git, and GitHub, and gradually expanded into creating complete 
-                web projects using modern AI-assisted development tools.
+                I enjoy building responsive websites and modern web applications using HTML, CSS,
+                JavaScript, GitHub, Netlify and AI-assisted development tools.
               </p>
               <p>
-                Currently, I am focused on improving my frontend development skills by building 
-                practical projects, learning new technologies, and creating products that provide 
-                value to real users.
+                I love solving real-world problems through technology and continuously improving
+                my skills by building practical projects.
               </p>
             </div>
+
 
             {/* Stats Card */}
             <div className="mt-8 bg-card border border-border rounded-2xl p-6">

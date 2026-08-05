@@ -118,7 +118,7 @@ const Navigation = () => {
               href="#contact"
               className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-body font-medium text-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
             >
-              Hire Me
+              Get In Touch
             </a>
           </div>
           
@@ -162,7 +162,7 @@ const Navigation = () => {
               className="block text-center bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-body font-medium"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Hire Me
+              Get In Touch
             </a>
           </div>
         </div>

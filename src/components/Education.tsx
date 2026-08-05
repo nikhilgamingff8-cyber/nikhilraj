@@ -40,14 +40,14 @@ const Education = () => {
                       3rd Semester
                     </span>
                     <span className="px-3 py-1 bg-primary/20 text-primary text-xs font-medium rounded-full">
-                      CGPA: 6.8 / 10
+                      CGPA: 6.8
                     </span>
                   </div>
                   <h3 className="font-display text-2xl md:text-3xl font-semibold mb-2">
                     Bachelor of Technology (B.Tech)
                   </h3>
                   <p className="text-primary font-body text-lg font-medium">
-                    Material Science & Metallurgical Engineering
+                    Metallurgical and Materials Science Engineering
                   </p>
                 </div>
               </div>
@@ -87,16 +87,17 @@ const Education = () => {
                   <div className="flex items-center gap-3 mb-4">
                     <BookOpen className="w-5 h-5 text-primary" />
                     <h5 className="font-display text-base font-semibold text-foreground">
-                      Current Subjects
+                      Current Focus
                     </h5>
                   </div>
                   <ul className="space-y-2">
                     {[
-                      "Physical Metallurgy",
-                      "Materials Characterization",
-                      "Manufacturing Processes",
-                      "Entrepreneurship",
-                      "Probability & Statistics",
+                      "Frontend Development",
+                      "JavaScript",
+                      "Python",
+                      "Git & GitHub",
+                      "Responsive Design",
+                      "AI Assisted Development",
                     ].map((course, index) => (
                       <li 
                         key={index}
@@ -118,10 +119,9 @@ const Education = () => {
                   </div>
                   <ul className="space-y-2">
                     {[
-                      "Selected for MANIT Bhopal",
-                      "India International Science Festival (IISF) 2022",
-                      "INSPIRE MANAK Award Selection",
-                      "NVS Level Wrestling Participant",
+                      "INSPIRE MANAK Award",
+                      "IISF 2022 Participant",
+                      "NVS Wrestling Participant",
                       "Built Multiple Live Websites",
                     ].map((achievement, index) => (
                       <li 

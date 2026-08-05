@@ -3,10 +3,13 @@ const Footer = () => {
     <footer className="py-8 px-6 md:px-12 lg:px-24 border-t border-border">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="font-body text-muted-foreground text-sm">
-          © {new Date().getFullYear()} Nikhil Raj. All rights reserved.
+          &copy; 2026 Nikhil Raj. All rights reserved.
         </p>
         <p className="font-body text-muted-foreground text-sm">
-          Designed & Built with <span className="text-primary">♥</span>
+          Designed &amp; Developed by <span className="text-primary">Nikhil Raj</span>
+        </p>
+        <p className="font-body text-muted-foreground text-sm">
+          Built using HTML, CSS and JavaScript
         </p>
       </div>
     </footer>

@@ -1,35 +1,48 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { Target } from "lucide-react";
 
 const Skills = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
 
-  const skills = [
-    { name: "Google Ads", level: 40, status: "Learning" },
-    { name: "Facebook/Meta Ads", level: 30, status: "Learning" },
-    { name: "PPC Campaigns", level: 25, status: "Learning" },
-    { name: "Analytics & Tracking", level: 20, status: "Learning" },
-  ];
-
-  const toolsAndSoftSkills = [
+  const skillCategories = [
     {
-      title: "Ads Platforms",
-      items: ["Google Ads", "Facebook Ads Manager", "Google Analytics", "Meta Business Suite"],
+      title: "Programming",
+      items: ["HTML5", "CSS3", "JavaScript", "Python", "C"],
     },
     {
-      title: "Soft Skills",
-      items: ["Data Analysis", "Strategic Thinking", "Client Communication", "ROI Focus"],
+      title: "Web Development",
+      items: [
+        "Responsive Web Design",
+        "Landing Page Development",
+        "Website Deployment",
+        "Mobile First Design",
+      ],
+    },
+    {
+      title: "Tools",
+      items: [
+        "VS Code",
+        "Git",
+        "GitHub",
+        "Netlify",
+        "Google AI Studio",
+        "Canva",
+        "Google Sheets",
+      ],
     },
     {
       title: "Currently Learning",
-      items: ["Campaign Optimization", "A/B Testing", "Conversion Tracking", "Audience Targeting"],
+      items: ["Advanced JavaScript", "React.js", "AI Assisted Development"],
     },
   ];
 
-  const getLevelColor = (level: number) => {
-    if (level >= 40) return "from-green-500 to-emerald-400";
-    if (level >= 25) return "from-yellow-500 to-amber-400";
-    return "from-blue-500 to-cyan-400";
-  };
+  const careerGoals = [
+    "Build Production Ready Websites",
+    "Secure Frontend Internship",
+    "Contribute to Open Source",
+    "Build SaaS Projects",
+    "Improve UI/UX Skills",
+  ];
 
   return (
     <section 
@@ -40,50 +53,20 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto">
         <div className={`text-center mb-16 reveal ${isVisible ? 'visible' : ''}`}>
           <p className="text-primary font-body text-sm tracking-widest uppercase mb-4">
-            My Progress
+            My Toolkit
           </p>
           <h2 className="font-display text-4xl md:text-5xl font-semibold mb-4">
-            Ads <span className="text-gradient italic">Skills</span>
+            Technical <span className="text-gradient italic">Skills</span>
           </h2>
           <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">
-            Building my digital advertising expertise step by step. 
-            Learning to drive real results through paid campaigns!
+            The languages, tools and practices I use to build responsive websites
+            and modern web applications.
           </p>
         </div>
 
-        {/* Technical Skills with Progress Bars */}
-        <div className={`bg-card border border-border rounded-2xl p-8 mb-8 reveal ${isVisible ? 'visible' : ''}`}>
-          <h3 className="font-display text-2xl font-semibold mb-8">Advertising Skills</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            {skills.map((skill, index) => (
-              <div key={index} className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="font-body font-medium">{skill.name}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                    <span className={`text-xs px-2 py-0.5 rounded-full ${
-                      skill.status === "Learning" 
-                        ? "bg-yellow-500/20 text-yellow-500" 
-                        : "bg-blue-500/20 text-blue-500"
-                    }`}>
-                      {skill.status}
-                    </span>
-                  </div>
-                </div>
-                <div className="w-full bg-secondary rounded-full h-3 overflow-hidden">
-                  <div
-                    className={`h-full bg-gradient-to-r ${getLevelColor(skill.level)} rounded-full transition-all duration-1000 ease-out`}
-                    style={{ width: isVisible ? `${skill.level}%` : '0%' }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Tools and Soft Skills */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {toolsAndSoftSkills.map((category, index) => (
+        {/* Skill Categories */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {skillCategories.map((category, index) => (
             <div 
               key={index}
               className={`bg-card border border-border rounded-2xl p-8 hover-lift reveal-scale ${isVisible ? 'visible' : ''} stagger-${index + 1}`}
@@ -109,6 +92,25 @@ const Skills = () => {
               </ul>
             </div>
           ))}
+        </div>
+
+        {/* Career Goals */}
+        <div className={`bg-card border border-border rounded-2xl p-8 reveal ${isVisible ? 'visible' : ''}`}>
+          <div className="flex items-center gap-3 mb-6">
+            <Target className="w-6 h-6 text-primary" />
+            <h3 className="font-display text-xl font-semibold">Career Goals</h3>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {careerGoals.map((goal, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-3 p-4 bg-secondary/50 rounded-xl"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                <span className="font-body text-sm">{goal}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
