@@ -117,6 +117,7 @@ const Contact = () => {
 
   const socials = [
     { icon: Github, label: "GitHub", href: "https://github.com/nikhilgamingff8-cyber" },
+    { icon: Globe, label: "Portfolio", href: "https://nikhilrajnitb.netlify.app/" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/nikhil-raj-513a22393" },
     { icon: Twitter, label: "Twitter/X", href: "https://x.com/Nikhilraj302" },
   ];
