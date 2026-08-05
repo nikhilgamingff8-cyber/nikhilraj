@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Clock, Trash2, CheckCircle } from "lucide-react";
-import { Mail, MapPin, Github, Linkedin, Send, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Globe, Github, Linkedin, Send, Twitter } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
