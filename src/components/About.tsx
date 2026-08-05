@@ -1,5 +1,5 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Rocket, Star, Code, Target } from "lucide-react";
+import { Rocket, Trophy, Code, Target } from "lucide-react";
 
 const About = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
@@ -14,24 +14,25 @@ const About = () => {
     {
       icon: Rocket,
       title: "My Journey",
-      description: "Started learning web development from scratch and continuously building real-world projects to improve my skills.",
+      description: "Started learning web development from scratch and now building real-world projects.",
     },
     {
-      icon: Star,
-      title: "Featured Project",
-      description: "Built The CampusX, a live student cashback platform that provides verified campaigns, detailed guides, tracker links, and payment proof support.",
+      icon: Trophy,
+      title: "Sports & Discipline",
+      description: "Represented Jawahar Navodaya Vidyalaya in Wrestling which taught me discipline and consistency.",
     },
     {
       icon: Code,
-      title: "Current Focus",
-      description: "Improving frontend development skills by creating responsive websites, landing pages, and user-friendly web applications.",
+      title: "Web Development",
+      description: "Building responsive websites, landing pages and modern web applications.",
     },
     {
       icon: Target,
-      title: "Career Goal",
-      description: "To become a skilled Frontend Web Developer and contribute to innovative products while continuously learning modern web technologies.",
+      title: "Vision",
+      description: "Become a skilled Frontend Web Developer and build useful products for students.",
     },
   ];
+
 
   return (
     <section 
