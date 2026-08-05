@@ -15,7 +15,7 @@
       {
         "name": "get_about",
         "title": "Get about",
-        "description": "Get Nikhil Raj's bio, background, and journey into digital advertising.",
+        "description": "Get Nikhil Raj's bio, background, and frontend web development journey.",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,

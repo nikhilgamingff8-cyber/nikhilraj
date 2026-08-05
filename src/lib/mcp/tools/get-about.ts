@@ -3,7 +3,7 @@ import { defineTool } from "@lovable.dev/mcp-js";
 export default defineTool({
   name: "get_about",
   title: "Get about",
-  description: "Get Nikhil Raj's bio, background, and journey into digital advertising.",
+  description: "Get Nikhil Raj's bio, background, and frontend web development journey.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => ({
@@ -11,13 +11,15 @@ export default defineTool({
       {
         type: "text",
         text: [
-          "Nikhil Raj — aspiring digital ads expert.",
+          "Nikhil Raj — Frontend Web Developer.",
           "",
-          "Background: Studied at Jawahar Navodaya Vidyalaya (JNV). Represented at the national level in wrestling during 12th class, which built discipline and resilience.",
+          "Education: B.Tech in Metallurgical and Materials Science Engineering at MANIT Bhopal (2025-2029), currently in the 3rd semester with a CGPA of 6.8.",
           "",
-          "Web foundations: Completed HTML, CSS, JavaScript, and Git & GitHub.",
+          "Background: Studied at Jawahar Navodaya Vidyalaya (JNV) and represented JNV in wrestling, which built discipline and consistency.",
           "",
-          "Current focus: Transitioning from web development into digital advertising — learning Google Ads, Facebook Ads, and PPC campaign strategy to become an ads expert.",
+          "Skills: HTML, CSS, JavaScript, Python, C, Git & GitHub, Netlify deployment, responsive and mobile-first design, AI-assisted development tools.",
+          "",
+          "Current focus: Building responsive websites, landing pages, and modern web applications, and learning advanced JavaScript and React.js.",
         ].join("\n"),
       },
     ],
